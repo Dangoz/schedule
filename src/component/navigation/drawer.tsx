@@ -29,7 +29,7 @@ const DrawerMenu = ({ visible, setVisible }: {
             theme={'dark'} onSelect={itemSelect}>
 
             <Menu.Item key='1' icon={<ScheduleOutlined />} className={DrawerStyle.item}>
-              <div className={DrawerStyle.text}>SCHEDULE</div>
+              <div className={DrawerStyle.text}>Schedule</div>
             </Menu.Item>
 
             <Menu.Divider />
@@ -47,7 +47,7 @@ const DrawerMenu = ({ visible, setVisible }: {
             <Menu.Divider />
 
             <Menu.Item key='99' icon={<HomeOutlined />} className={DrawerStyle.item}>
-              <Link href='https://phase-connect.com'><div className={DrawerStyle.text}>HOME SITE</div></Link>
+              <Link href='https://phase-connect.com'><div className={DrawerStyle.text}>Home Site</div></Link>
             </Menu.Item>
           </Menu>
         </div>
