@@ -21,7 +21,7 @@ const DrawerMenu = ({ visible, setVisible }: {
     <>
       <Drawer className={DrawerStyle.drawer} visible={visible}
         onClose={onClose} closable={false} width={230} placement={'left'}
-        bodyStyle={{ padding: 0 }}
+        bodyStyle={{ padding: 0, backgroundColor: '#001529' }}
       >
         <div className={DrawerStyle.wrapper}>
           <Menu className={DrawerStyle.menuWrapper} defaultOpenKeys={['sub1']}
@@ -29,25 +29,25 @@ const DrawerMenu = ({ visible, setVisible }: {
             theme={'dark'} onSelect={itemSelect}>
 
             <Menu.Item key='1' icon={<ScheduleOutlined />} className={DrawerStyle.item}>
-              <span className={DrawerStyle.text}>SCHEDULE</span>
+              <div className={DrawerStyle.text}>SCHEDULE</div>
             </Menu.Item>
 
             <Menu.Divider />
 
             <SubMenu key='sub1' title='Generation 1' className={DrawerStyle.subMenu} >
-              <Menu.Item key='2' className={DrawerStyle.item}><span className={DrawerStyle.text}>Pipkin Pippa</span></Menu.Item>
-              <Menu.Item key='3' className={DrawerStyle.item}><span className={DrawerStyle.text}>nasa</span></Menu.Item>
-              <Menu.Item key='4' className={DrawerStyle.item}><span className={DrawerStyle.text}>pipi</span></Menu.Item>
-              <Menu.Item key='5' className={DrawerStyle.item}><span className={DrawerStyle.text}>nasa</span></Menu.Item>
-              <Menu.Item key='6' className={DrawerStyle.item}><span className={DrawerStyle.text}>pipi</span></Menu.Item>
-              <Menu.Item key='7' className={DrawerStyle.item}><span className={DrawerStyle.text}>nasa</span></Menu.Item>
-              <Menu.Item key='8' className={DrawerStyle.item}><span className={DrawerStyle.text}>pipi</span></Menu.Item>
+              <Menu.Item key='2' className={DrawerStyle.item}><div className={DrawerStyle.text}>Pipkin Pippa</div></Menu.Item>
+              <Menu.Item key='3' className={DrawerStyle.item}><div className={DrawerStyle.text}>nasa</div></Menu.Item>
+              <Menu.Item key='4' className={DrawerStyle.item}><div className={DrawerStyle.text}>pipi</div></Menu.Item>
+              <Menu.Item key='5' className={DrawerStyle.item}><div className={DrawerStyle.text}>nasa</div></Menu.Item>
+              <Menu.Item key='6' className={DrawerStyle.item}><div className={DrawerStyle.text}>pipi</div></Menu.Item>
+              <Menu.Item key='7' className={DrawerStyle.item}><div className={DrawerStyle.text}>nasa</div></Menu.Item>
+              <Menu.Item key='8' className={DrawerStyle.item}><Link href='/pi'><div className={DrawerStyle.text}>pipi</div></Link></Menu.Item>
             </SubMenu>
 
             <Menu.Divider />
 
             <Menu.Item key='99' icon={<HomeOutlined />} className={DrawerStyle.item}>
-              <span className={DrawerStyle.text}>HOME SITE</span>
+              <Link href='https://phase-connect.com'><div className={DrawerStyle.text}>HOME SITE</div></Link>
             </Menu.Item>
           </Menu>
         </div>

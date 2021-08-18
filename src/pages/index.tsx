@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
+import HomeStyle from '@/styles/home.module.css'
 import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
 import { useState, useEffect } from 'react'
@@ -9,9 +9,9 @@ export default function Home({ API_KEY }) {
   const [isMobile, setIsMobile] = useState(null);
 
   return (
-    <>
+    <div className={HomeStyle.wrapper}>
       <Menu />
-    </>
+    </div>
   )
 }
 

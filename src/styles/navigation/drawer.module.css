@@ -3,19 +3,22 @@
   height: calc(100vh - 64px);
 }
 .menuWrapper {
-  background-color: black;
   z-index: 100;
-  height: 100vh;
+  height: calc(100vh - 64px);
 }
 .item {
   width: 100%;
+  /* background-color: purple; */
 }
 .subMenu {
   width: 100%;
 }
 .text {
-  margin-left: 10px;
-  /* color: white; */
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 58px;
 }
 .text:hover {
   color: white;
