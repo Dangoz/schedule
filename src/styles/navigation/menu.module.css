@@ -1,0 +1,57 @@
+.menu {
+  height: 64px;
+  background-color: #001529;
+  box-shadow: 0 3px 9px 0 rgba(0,0,0,0.35);
+  /* background-color: #2d2f33; */
+  opacity: 0.75;
+  /* line-height: 64px; */
+  padding: 0 15px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+.logoBlock {
+  height: 64px;
+  width: 140px;
+
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin: auto;
+  height: 59px;
+  z-index: 10;
+}
+.drawerBlock {
+  height: 64px;
+  width: 80px;
+
+  display: flex;
+  align-items: center;
+}
+.drawer {
+  font-size: 33.5px;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+}
+.placeholder {
+  /* background-color: red; */
+  height: 64px;
+  width: 80px;
+  visibility: hidden;
+}
+
+.text {
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+}
+.text:hover {
+  color: white;
+  text-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff;
+}
+

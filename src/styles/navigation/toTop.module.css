@@ -1,0 +1,24 @@
+.button {
+  transition: 0.25s;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  border-width: 0.00px;
+  box-shadow: 0 3px 6px -4px #0000001f,0 6px 16px #00000014,0 9px 28px 8px #0000000d;
+}
+.button:hover {
+  box-shadow: 0 0px 10px #69e0ff;
+  transition: 0s;
+}
+.backTop {
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
+
+  right: 20px;
+  bottom: 100px;
+}
+.rocket {
+  font-size: 35px;
+  color: black;
+}

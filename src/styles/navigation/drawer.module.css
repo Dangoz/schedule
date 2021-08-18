@@ -1,0 +1,10 @@
+.drawer {
+  top: 64px;
+  height: calc(100vh - 64px);
+}
+.wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+}

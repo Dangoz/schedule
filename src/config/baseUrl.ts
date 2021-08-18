@@ -1,4 +1,5 @@
 const baseUrl: string = process.env.NODE_ENV ===
-"production" ? 'http://localhost:3000' : 'http://localhost:3000';
+"production" ? process.env.URL : process.env.URL;
+// 'http://localhost:5000';
 
 export default baseUrl;
