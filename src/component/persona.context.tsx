@@ -1,7 +1,7 @@
 /**
  * (On hold, not satisifed by current use case.
  * can't share data across pages, by using getStaticProps)
- * TODO: maybe redux can work?..
+ * TODO: look into redux
  */
 
 import { useContext, createContext, useState } from "react"

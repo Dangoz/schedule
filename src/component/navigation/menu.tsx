@@ -4,10 +4,12 @@ import { Layout } from 'antd'
 import MenuStyle from '@/styles/navigation/menu.module.css'
 import ToTop from './toTop'
 import DrawerMenu from './drawer'
+import IProfile from '@/interfaces/profile.interface'
+const { Header, Sider, Content, Footer } = Layout;
 
-const Menu = () => {
+const Menu = ({ profiles }: { profiles: IProfile[] }) => {
   const [visible, setVisible] = useState(false);
-  const { Header, Sider, Content, Footer } = Layout;
+
   const draw = async (e) => {
     setVisible(!visible);
   }
@@ -20,7 +22,7 @@ const Menu = () => {
 
   return (
     <>
-      <DrawerMenu visible={visible} setVisible={setVisible} />
+      <DrawerMenu visible={visible} setVisible={setVisible} profiles={profiles} />
       {/* <Layout> */}
       <div className={MenuStyle.menu}>
 

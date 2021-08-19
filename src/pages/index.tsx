@@ -3,26 +3,25 @@ import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
 import { useState, useEffect } from 'react'
 import { GetStaticProps } from "next";
+import IProfile from '@/interfaces/profile.interface';
 
-export default function Home({ data }) {
+export default function Home({ personaData }: { personaData: IProfile[] }) {
+  const [profiles] = useState(personaData);
 
   return (
-    <div className={HomeStyle.wrapper}><Menu/>
-
-
+    <div className={HomeStyle.wrapper}><Menu profiles={profiles}/>
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  // export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const response = await api.get('/persona');
-  console.log('fetched DATA ^___^!')
+  console.log('Fetched DATA ^___^ Schedule Page')
+
+  const personaData: IProfile[] = response.data.profiles;
 
   return {
-    props: {
-      data: response.data
-    },
+    props: { personaData },
     revalidate: 10
   }
 }
