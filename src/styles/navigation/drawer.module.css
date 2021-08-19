@@ -19,6 +19,7 @@
   top: 0;
   left: 0;
   padding-left: 58px;
+  font-size: 15px;
 }
 .text:hover {
   color: white;
@@ -45,15 +46,16 @@
   border-radius: 50px;
 }
 .item:hover .photoImg {
-  width: 41px;
-  height: 41px;
+  width: 39px;
+  height: 39px;
   transition: 0.17s;
   box-shadow: 0 0 5px #69e0ff,0 0 5px #69e0ff,0 0 5px #69e0ff;
 }
 .item:hover .photo {
-  padding-left: 21px;
+  padding-left: 22px;
   transition: 0.17s;
 }
 .subMenu .text {
   padding-left: 78px;
+  font-size: 14px;
 }

@@ -38,7 +38,7 @@ const DrawerMenu = ({ visible, setVisible, profiles }: {
               <Link href='/'><div className={DrawerStyle.text}>Schedule</div></Link>
             </Menu.Item>
 
-            <Menu.Divider />
+            {/* <Menu.Divider /> */}
 
             <SubMenu key='sub1' title='Generation 1' className={DrawerStyle.subMenu} >
               {
@@ -51,7 +51,7 @@ const DrawerMenu = ({ visible, setVisible, profiles }: {
               }
             </SubMenu>
 
-            <Menu.Divider />
+            {/* <Menu.Divider /> */}
 
             <Menu.Item key='99' icon={<HomeOutlined />} className={DrawerStyle.item}>
               <Link href='https://phase-connect.com'><div className={DrawerStyle.text}>Home Site</div></Link>
