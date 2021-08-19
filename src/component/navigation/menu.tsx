@@ -31,7 +31,7 @@ const Menu = () => {
         </div>
 
         <div className={MenuStyle.logoBlock}>
-          <img src='logo_white.png' alt='logo' className={MenuStyle.logo} />
+          <img src="/logo_white.png" alt='logo' className={MenuStyle.logo} />
         </div>
 
         <div className={MenuStyle.placeholder}>
@@ -41,12 +41,6 @@ const Menu = () => {
       </div>
       {/* </Layout> */}
 
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
-      ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />ab<br />
       <ToTop />
     </>
   )

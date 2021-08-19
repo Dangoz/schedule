@@ -29,7 +29,7 @@ const DrawerMenu = ({ visible, setVisible }: {
             theme={'dark'} onSelect={itemSelect}>
 
             <Menu.Item key='1' icon={<ScheduleOutlined />} className={DrawerStyle.item}>
-              <div className={DrawerStyle.text}>Schedule</div>
+              <Link href='/'><div className={DrawerStyle.text}>Schedule</div></Link>
             </Menu.Item>
 
             <Menu.Divider />
@@ -41,7 +41,7 @@ const DrawerMenu = ({ visible, setVisible }: {
               <Menu.Item key='5' className={DrawerStyle.item}><div className={DrawerStyle.text}>nasa</div></Menu.Item>
               <Menu.Item key='6' className={DrawerStyle.item}><div className={DrawerStyle.text}>pipi</div></Menu.Item>
               <Menu.Item key='7' className={DrawerStyle.item}><div className={DrawerStyle.text}>nasa</div></Menu.Item>
-              <Menu.Item key='8' className={DrawerStyle.item}><Link href='/pi'><div className={DrawerStyle.text}>pipi</div></Link></Menu.Item>
+              <Menu.Item key='8' className={DrawerStyle.item}><Link href='/v/pipi'><div className={DrawerStyle.text}>pipi</div></Link></Menu.Item>
             </SubMenu>
 
             <Menu.Divider />

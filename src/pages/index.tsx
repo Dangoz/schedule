@@ -1,37 +1,28 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import HomeStyle from '@/styles/home.module.css'
 import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
 import { useState, useEffect } from 'react'
+import { GetStaticProps } from "next";
 
-export default function Home({ API_KEY }) {
-  const [isMobile, setIsMobile] = useState(null);
+export default function Home({ data }) {
 
   return (
-    <div className={HomeStyle.wrapper}>
-      <Menu />
+    <div className={HomeStyle.wrapper}><Menu/>
+
+
     </div>
   )
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  // export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const response = await api.get('/persona');
+  console.log('fetched DATA ^___^!')
+
   return {
     props: {
-      API_KEY: process.env.GOOGLE_API_KEY
-    }
+      data: response.data
+    },
+    revalidate: 10
   }
 }
-
-// export const getStaticProps = async (context) => {
-//   return {
-//     props: {
-//       list: [1, 2, 3, 4, 6, 6]
-//     },
-//     revalidate: 20
-//   }
-// }
-
-// export const getStaticPaths = async (context) => {
-
-// }
