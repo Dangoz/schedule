@@ -3,9 +3,9 @@ import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
 import Schedule from '@/component/schedule/schedule'
 import { useState } from 'react'
-import { GetStaticProps } from "next";
-import IProfile from '@/interfaces/profile.interface';
-import IStreamVideo from '@/interfaces/stream-video.interface';
+import { GetStaticProps } from "next"
+import IProfile from '@/interfaces/profile.interface'
+import IStreamVideo from '@/interfaces/stream-video.interface'
 
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {

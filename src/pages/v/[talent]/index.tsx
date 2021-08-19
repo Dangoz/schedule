@@ -1,8 +1,8 @@
 import Menu from '@/component/navigation/menu'
-import { useState } from "react"
-import { GetStaticProps, GetStaticPaths } from "next";
+import { useState } from 'react'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import api from '@/config/axios'
-import IProfile from '@/interfaces/profile.interface';
+import IProfile from '@/interfaces/profile.interface'
 
 const Talent = ({ personaData }: { personaData: IProfile[] }) => {
   const [profiles] = useState(personaData);
