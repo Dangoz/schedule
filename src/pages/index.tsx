@@ -6,14 +6,17 @@ import { useState } from 'react'
 import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
 import IStreamVideo from '@/interfaces/stream-video.interface'
+import { personaContext } from '@/component/persona.context'
 
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {
 
   return (
     <div className={HomeStyle.wrapper}>
-      <Menu profiles={personaData} />
-      <Schedule videos={streamVideoData} />
+      <personaContext.Provider value={personaData}>
+        <Menu profiles={personaData} />
+        <Schedule videos={streamVideoData} />
+      </personaContext.Provider>
     </div>
   )
 }

@@ -1,10 +1,17 @@
+import IStreamVideo from '@/interfaces/stream-video.interface'
 import CardStyle from '@/styles/schedule/card.module.css'
+import dayjs from 'dayjs'
 
-const Card = () => {
+const Card = ({ video }: { video: IStreamVideo }) => {
+
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className={CardStyle.wrapper}>
+        {
+
+        }
+      </div>
+    </>
   )
 }
 

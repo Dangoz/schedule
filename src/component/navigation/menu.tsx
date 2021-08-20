@@ -13,12 +13,6 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
   const draw = async (e) => {
     setVisible(!visible);
   }
-  useEffect(() => {
-    console.log('initial:', visible)
-  }, [])
-  useEffect(() => {
-    console.log('changed:', visible)
-  }, [visible])
 
   return (
     <>
