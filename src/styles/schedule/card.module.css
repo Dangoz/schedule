@@ -14,16 +14,9 @@
   border-radius: 4px;
 }
 /* icons */
-.timerIcon {
-
-}
 .icon {
   font-size: 28px;
   padding: 10px;
-}
-.liveIcon {
-  /* box-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; */
-  /* border-radius: 100px; */
 }
 
 /* timer */
