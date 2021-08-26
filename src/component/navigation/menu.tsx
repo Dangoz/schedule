@@ -9,16 +9,24 @@ const { Header, Sider, Content, Footer } = Layout;
 
 const Menu = ({ profiles }: { profiles: IProfile[] }) => {
   const [visible, setVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const draw = async (e) => {
     setVisible(!visible);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scroll)
+  }, [])
+  const scroll = async () => {
+    setScrolled(window.scrollY > 150)
   }
 
   return (
     <>
       <DrawerMenu visible={visible} setVisible={setVisible} profiles={profiles} />
       {/* <Layout> */}
-      <div className={MenuStyle.menu}>
+      <div className={MenuStyle.menu} style={{ opacity: scrolled ? 0.8 : 1 }}>
 
         <div className={MenuStyle.drawerBlock} >
           {visible

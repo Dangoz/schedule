@@ -1,6 +1,6 @@
 /**
- * (On hold, not satisifed by current use case for use between index & talent pages)
- * Currently used for data sharing deeper tree nodes from index page: drawer & card component
+ * (On hold, not satisifed by current use case for sharing between index & talent pages)
+ * can be used for sharing data to deeper tree nodes: drawer & card component
  * TODO: look into redux
  */
 

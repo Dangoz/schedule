@@ -1,4 +1,5 @@
 import IProfile from "@/interfaces/profile.interface";
+import IStreamVideo from "@/interfaces/stream-video.interface";
 
 // (used by drawer!) sort profiles into a list of talents, by assigned order & generation
 export const sortTalentsByGeneration = (profiles: IProfile[], order: string[], generation: string):
@@ -14,4 +15,12 @@ export const sortTalentsByGeneration = (profiles: IProfile[], order: string[], g
       }
     })
   return talents;
+}
+
+//find profile of the video's channel
+export const findProfileByVideo = (profiles: IProfile[], video: IStreamVideo): IProfile => {
+  const profile = profiles.find(p => {
+    return p.youtube === `https://www.youtube.com/channel/${video.channelId}`;
+  })
+  return profile;
 }

@@ -8,7 +8,7 @@
   status: string;
   liveViewCount: number;
   scheduledAt: Date;
-  availableAt: Date;
+  availableAt: Date; // availableAt should be used for most cases
   channelId: string;
   tags: string[];
 }

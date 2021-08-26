@@ -1,35 +1,39 @@
 import GridStyle from '@/styles/schedule/grid.module.css'
 import { Row, Col, Spin } from 'antd'
-import { useEffect, useState } from 'react';
-import dayjs from 'dayjs';
-import IStreamVideo from '@/interfaces/stream-video.interface';
+import { useEffect, useState } from 'react'
+import IStreamVideo from '@/interfaces/stream-video.interface'
 import Card from './card'
+import IProfile from '@/interfaces/profile.interface'
+import dayjs from 'dayjs'
+import dayOfYear from 'dayjs/plugin/dayOfYear'
 
-const Grid = ({ criteria, videos, isToday, isAfterwards }:
-  { criteria: dayjs.Dayjs, videos: IStreamVideo[], isToday: boolean, isAfterwards: boolean }) => {
-    
-  const [span] = useState({ xs: 12, sm: 8, md: 6, lg: 4 });
-  const [title, setTitle] = useState('MM/DD');
+dayjs.extend(dayOfYear);
+
+const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
+  { criteria: dayjs.Dayjs, videos: IStreamVideo[], isToday: boolean, isAfterwards: boolean, profiles: IProfile[] }) => {
+
+  const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
+  const [title, setTitle] = useState('MM / DD');
   const [content, setContent] = useState(null);
   const [isLoading, setIsloading] = useState(true);
 
   const filterVideos = async (): Promise<IStreamVideo[]> => {
-    // const result = videos.filter(video => {
-    //   if (isToday) { return (dayjs(video.availableAt).date() <= criteria.date()) }
-    //   else if (isAfterwards) { return (dayjs(video.availableAt).date() >= criteria.date()) }
-    //   else { return (dayjs(video.availableAt).date() === criteria.date()) };
-    // })
-    // console.log('filtered!', JSON.stringify(result, null, 2));
-    // return result;
-
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const result = videos.filter(video => {
-          if (isToday) { return (dayjs(video.availableAt).date() <= criteria.date()) }
-          else if (isAfterwards) { return (dayjs(video.availableAt).date() >= criteria.date()) }
-          else { return (dayjs(video.availableAt).date() === criteria.date()) };
+        let result = videos.filter(video => {
+
+          let timestamp = dayjs(video.availableAt);
+          let sameDay: boolean = (timestamp.dayOfYear() === criteria.dayOfYear() && timestamp.year() === criteria.year());
+          if (isToday) { return (+timestamp <= +criteria || sameDay) }
+          else if (isAfterwards) { return (+timestamp >= +criteria || sameDay) }
+          else { return sameDay };
         })
         console.log('filtered!', JSON.stringify(result, null, 2));
+
+        result = result.sort((a, b) => {
+          return +dayjs(a.availableAt) - +dayjs(b.availableAt);
+        })
+
         resolve(result);
       }, 500)
     })
@@ -39,7 +43,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards }:
 
     filterVideos().then(videos => {
       setContent(videos);
-      setTitle(criteria.format('MM/DD'))
+      setTitle(criteria.format('MM / DD'))
       setIsloading(false);
     })
   }, []);
@@ -49,6 +53,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards }:
   }, [content])
 
   return (
+    // only show grid that is initalizing (null), or contains contents (length > 0)
     <>
       {(!content || (content && content.length > 0)) && <div className={GridStyle.wrapper}>
 
@@ -62,13 +67,13 @@ const Grid = ({ criteria, videos, isToday, isAfterwards }:
             : <Row className={GridStyle.row} gutter={[0, 0]}
               justify={'center'}>
 
-              {content.map(video => {
-                <Col xs={span.xs} sm={span.sm} md={span.md} lg={span.lg} className={GridStyle.colBox}>
+              {content.map(video => (
+                <Col xs={span.xs} sm={span.sm} md={span.md} lg={span.lg} className={GridStyle.colBox} key={video.link}>
                   <div className={GridStyle.col}>
-                    <Card video={video} />
+                    <Card video={video} profiles={profiles} />
                   </div>
                 </Col>
-              })}
+              ))}
 
             </Row>
           }

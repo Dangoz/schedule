@@ -2,7 +2,6 @@ import HomeStyle from '@/styles/home.module.css'
 import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
 import Schedule from '@/component/schedule/schedule'
-import { useState } from 'react'
 import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
 import IStreamVideo from '@/interfaces/stream-video.interface'
@@ -13,10 +12,8 @@ export default function Home({ personaData, streamVideoData }:
 
   return (
     <div className={HomeStyle.wrapper}>
-      <personaContext.Provider value={personaData}>
         <Menu profiles={personaData} />
-        <Schedule videos={streamVideoData} />
-      </personaContext.Provider>
+        <Schedule videos={streamVideoData} profiles={personaData}/>
     </div>
   )
 }

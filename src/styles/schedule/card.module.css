@@ -1,0 +1,154 @@
+.card {
+  /* background-color: gainsboro; */
+  border-radius: 4px;
+}
+
+/* top */
+.top {
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* background-color: gainsboro; */
+  border-radius: 4px;
+}
+/* icons */
+.timerIcon {
+
+}
+.icon {
+  font-size: 28px;
+  padding: 10px;
+}
+.liveIcon {
+  /* box-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; */
+  /* border-radius: 100px; */
+}
+
+/* timer */
+.timer {
+  padding-left: 0px;
+  font-family: sans-serif;
+  cursor: default;
+}
+.liveTimer {
+  color: #f00;
+  background-color: rgba(255, 0, 0, 0.062);
+  font-size: 14px;
+  font-weight: 510;
+  border: 2px solid #f00;
+  border-radius: 4px;
+  padding: 1px 4px;
+  /* box-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; */
+}
+.countdown {
+  font-weight: 400;
+  width: 100%;
+  height: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0px;
+}
+.defaultTimer {
+  font-size: 20px;
+}
+
+/* content */
+.content {
+  position: relative;
+  cursor: pointer;
+}
+.hovering {
+  opacity: 0;
+  transition: 0.25s;
+}
+.hovering:hover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: 0.25s;
+}
+.mask {
+  position: absolute;
+  background-color: black;
+  opacity: 0.35;
+  width: inherit;
+  height: 100%;
+  width: 100%;
+}
+.youtubeIconWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.youtubeIcon {
+  margin: 0 auto;
+  position: relative;
+  font-size: 10vw;
+  color: whitesmoke;
+}
+.thumbnail {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 4px;
+  /* opacity: 0; */
+}
+
+/* title */
+.title {
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 100%;
+  height: 50px;
+  line-height: 22px;
+  
+  font-size: 16px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* background-color: red; */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-top: 3px;
+  padding-right: 15px;
+  padding-left: 2px;
+  text-align: center;
+}
+.title:hover {
+  color: #00a1d6;
+}
+
+/* bottom */
+.bottom {
+  position: relative;
+  /* padding-bottom: 10px; */
+  /* background-color: red; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.photo {
+  cursor: pointer;
+  object-fit: cover;
+  width: 46px;
+  height: 46px;
+  display: block;
+  border-radius: 50px;
+}
+.photo:hover {
+  transition: 0.17s;
+  box-shadow: 0 0 5px #69e0ff,0 0 5px #69e0ff,0 0 10px #69e0ff;
+}
+.name {
+  cursor: pointer;
+  color: #1890ff;
+}

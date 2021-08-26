@@ -21,7 +21,7 @@ const ToTop = () => {
 
   return (
     <>
-      <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+      <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className={ToTopStyle.warpper}>
         <BackTop className={ToTopStyle.backTop} duration={500} visibilityHeight={450} >
           <Button type='default' className={ToTopStyle.button} shape={'circle'}>
             {mouseInside ? <RocketFilled className={ToTopStyle.rocket} />
