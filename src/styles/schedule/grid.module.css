@@ -5,8 +5,10 @@
   /* background-color: thistle; */
   display: flex;
   align-items: center;
-  padding-left: 3%;
-  padding-right: 3%;
+  /* padding-left: 3%; */
+  padding-left: calc(1% + 10px);
+  /* padding-right: 3%; */
+  padding-right: calc(1% + 10px);
 }
 .title{
   border-radius: 4px;
