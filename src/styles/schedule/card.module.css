@@ -82,7 +82,7 @@
 .youtubeIcon {
   margin: 0 auto;
   position: relative;
-  font-size: 10vw;
+  font-size: 500%;
   color: whitesmoke;
 }
 .thumbnail {
@@ -100,16 +100,16 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   width: 100%;
-  height: 50px;
+  height: 46px;
+  max-height: 50px;
   line-height: 22px;
   
   font-size: 16px;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* background-color: red; */
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding-top: 3px;
   padding-right: 15px;
   padding-left: 2px;
@@ -122,9 +122,6 @@
 /* bottom */
 .bottom {
   position: relative;
-  /* padding-bottom: 10px; */
-  /* background-color: red; */
-
   display: flex;
   justify-content: center;
   align-items: center;

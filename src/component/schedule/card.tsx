@@ -13,7 +13,7 @@ dayjs.extend(relativeTime)
 dayjs.extend(calendar)
 
 const { Countdown } = Statistic;
-const countdownLimit: number = 10;
+const countdownLimit: number = 12;
 
 const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }) => {
   const [timestamp] = useState(dayjs(video.availableAt));
