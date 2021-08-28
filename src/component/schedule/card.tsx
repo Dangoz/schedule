@@ -81,15 +81,15 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
               <img className={CardStyle.photo} src={`${talent.photo}`} />
             </Link>
 
-            {/* <Divider type={'vertical'} plain={true}><Link href={`/v/${talent.href}`}>
+            <Divider type={'vertical'} plain={true}><Link href={`/v/${talent.href}`}>
               <div className={CardStyle.name}>{talent.name}</div>
-            </Link></Divider> */}
+            </Link></Divider>
           </div>
 
-          <Divider plain={true}><Link href={`/v/${talent.href}`}>
+          {/* <Divider plain={true}><Link href={`/v/${talent.href}`}>
             <div className={CardStyle.name}>{talent.name}</div>
-          </Link></Divider>
-          {/* <Divider /> */}
+          </Link></Divider> */}
+          <Divider />
 
 
         </div>
