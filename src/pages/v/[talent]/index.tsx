@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: { personaData },
-    revalidate: 10
+    // revalidate: 10
   }
 }
 
