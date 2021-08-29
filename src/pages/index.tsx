@@ -35,6 +35,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       personaData,
       streamVideoData
     },
-    revalidate: 10
+    revalidate: 60
   }
 }
