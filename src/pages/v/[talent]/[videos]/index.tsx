@@ -4,6 +4,7 @@ import IProfile from '@/interfaces/profile.interface'
 import api from '@/config/axios'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 function Videos({ personaData }: { personaData: IProfile[] }) {
   const [profiles] = useState(personaData)
@@ -17,6 +18,8 @@ function Videos({ personaData }: { personaData: IProfile[] }) {
   return (
     <div> <Menu profiles={profiles} />
       'HELLO WORLD : ' {JSON.stringify(query, null, 2)}
+      <br/>
+      <Link href={`/v/${router.query.talent}`}><button>talent</button></Link>
     </div>
   )
 }
