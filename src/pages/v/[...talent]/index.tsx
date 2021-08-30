@@ -17,7 +17,7 @@ const Talent = ({ personaData }: { personaData: IProfile[] }) => {
       <br/>
       <Link href={`/v/${router.query.talent[0]}`}><button>talent</button></Link>
       <br/>
-      <Link href={`/v/${router.query.talent}/videos`}><button>videos</button></Link>
+      <Link href={`/v/${router.query.talent[0]}/videos`}><button>videos</button></Link>
     </div>
   )
 }
@@ -25,13 +25,14 @@ const Talent = ({ personaData }: { personaData: IProfile[] }) => {
 export default Talent
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  console.log('params: ', params);
   const response = await api.get('/persona');
   console.log('Fetched DATA ^___^ Profile Page')
   const personaData: IProfile[] = response.data.profiles;
 
   return {
     props: { personaData },
-    revalidate: 300
+    revalidate: 10
   }
 }
 
