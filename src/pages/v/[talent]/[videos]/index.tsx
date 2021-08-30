@@ -1,30 +1,33 @@
 import Menu from '@/component/navigation/menu'
-import { useState } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import api from '@/config/axios'
 import IProfile from '@/interfaces/profile.interface'
+import api from '@/config/axios'
 import { useRouter } from 'next/router'
-import Link from 'next/link';
+import { useEffect, useState } from 'react'
 
-const Talent = ({ personaData }: { personaData: IProfile[] }) => {
+function Videos({ personaData }: { personaData: IProfile[] }) {
+  const [profiles] = useState(personaData)
   const router = useRouter();
-  const [profiles] = useState(personaData);
+  const [query, setQuery] = useState(router.query);
+
+  useEffect(() => {
+    setQuery(router.query);
+  }, [router.query])
 
   return (
     <div> <Menu profiles={profiles} />
-      {JSON.stringify(router.query, null, 2)}
-      {/* {JSON.stringify(profiles, null, 2)} */}
-      <br/>
-      <Link href={`/v/${router.query.talent}/videos`}><button>videos</button></Link>
+      'HELLO WORLD : ' {JSON.stringify(query, null, 2)}
     </div>
   )
 }
 
-export default Talent
+export default Videos
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  console.log('params!', params)
+
   const response = await api.get('/persona');
-  console.log('Fetched DATA ^___^ Profile Page')
+  console.log('Fetched DATA ^___^ Profile Page');
   const personaData: IProfile[] = response.data.profiles;
 
   return {
@@ -36,8 +39,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const talentList: string[][] = await require('@/constant/talentList')();
   const talents = talentList.flat();
-  let paths = talents.map(talent => ({ params: { talent } }));
-  // paths = [...paths, ...talents.map(talent => ({ params: { talent: `${talent}/videos` } }))];
+
+  let paths = talents.map(talent => ({ params: { talent, videos: 'videos' } }));
+
   console.log('paths generated for: ', paths);
   return {
     paths,
