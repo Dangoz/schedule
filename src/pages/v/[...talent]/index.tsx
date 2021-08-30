@@ -1,33 +1,32 @@
 import Menu from '@/component/navigation/menu'
+import { useState, useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import IProfile from '@/interfaces/profile.interface'
 import api from '@/config/axios'
+import IProfile from '@/interfaces/profile.interface'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import Link from 'next/link';
 
-function Videos({ personaData }: { personaData: IProfile[] }) {
-  const [profiles] = useState(personaData)
+const Talent = ({ personaData }: { personaData: IProfile[] }) => {
   const router = useRouter();
-  const [query, setQuery] = useState(router.query);
-
-  useEffect(() => {
-    setQuery(router.query);
-  }, [router.query])
+  const [profiles] = useState(personaData);
 
   return (
     <div> <Menu profiles={profiles} />
-      'HELLO WORLD : ' {JSON.stringify(query, null, 2)}
+      {JSON.stringify(router.query, null, 2)}
+      {/* {JSON.stringify(profiles, null, 2)} */}
+      <br/>
+      <Link href={`/v/${router.query.talent[0]}`}><button>talent</button></Link>
+      <br/>
+      <Link href={`/v/${router.query.talent}/videos`}><button>videos</button></Link>
     </div>
   )
 }
 
-export default Videos
+export default Talent
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log('params!', params)
-
   const response = await api.get('/persona');
-  console.log('Fetched DATA ^___^ Profile Page');
+  console.log('Fetched DATA ^___^ Profile Page')
   const personaData: IProfile[] = response.data.profiles;
 
   return {
@@ -39,8 +38,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const talentList: string[][] = await require('@/constant/talentList')();
   const talents = talentList.flat();
-
-  let paths = talents.map(talent => ({ params: { talent, videos: 'videos' } }));
+  let paths = talents.map(talent => ({ params: { talent: [talent] } }));
+  paths = [...paths, ...talents.map(talent => ({ params: { talent: [talent, 'videos'] } }))];
 
   console.log('paths generated for: ', paths);
   return {
