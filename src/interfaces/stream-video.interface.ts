@@ -10,5 +10,5 @@
   scheduledAt: Date;
   availableAt: Date; // availableAt should be used for most cases
   channelId: string;
-  tags: string[];
+  // tags: string[];
 }
