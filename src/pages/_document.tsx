@@ -6,8 +6,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" type="image/png" href="/favicon.png"/>
-          <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet"/>
+          {/* <link rel="icon" type="image/png" href="/favicon.png"/>
+          <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet"/> */}
         </Head>
         <body>
           <Main />

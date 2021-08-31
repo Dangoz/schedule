@@ -20,7 +20,7 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
       window.addEventListener('mousemove', mousemove);
   }, [])
 
-  const mousemove = async (e) => {
+  const mousemove = (e) => {
     console.log('x', e.clientX, 'y', e.clientY);
 
     pbutton.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 28)}px, 
