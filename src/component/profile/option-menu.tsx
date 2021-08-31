@@ -42,18 +42,18 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
   return (
     <div className={OptionMenuStyle.wrapper}>
 
-      <div className={OptionMenuStyle.blur} />
+      <div className={OptionMenuStyle.blur}/>
       <div className={OptionMenuStyle.banner} style={{ backgroundImage: `url(${talent.banner})` }} />
 
       <Row justify={'center'} className={OptionMenuStyle.row}>
-        <Col key={'nameCard'} className={OptionMenuStyle.col}>
+        <Col key={'nameCard'} className={OptionMenuStyle.col} >
           <div className={OptionMenuStyle.nameCard}>
             <img src={talent.photo} className={OptionMenuStyle.thumbnail} ref={element => photoRef.current = element} />
             <div className={OptionMenuStyle.name} ref={element => nameRef.current = element}>{talent.name}</div>
           </div>
         </Col>
 
-        <Col key={'buttons'} className={OptionMenuStyle.col}>
+        <Col key={'buttons'} className={OptionMenuStyle.col} >
           <div className={OptionMenuStyle.buttons}>
             <Link href={`/v/${query[0]}`}>
               <Button type={'primary'} ref={element => pbutton.current = element}
