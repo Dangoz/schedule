@@ -2,8 +2,9 @@
   z-index: -5;
   /* padding-top: 10px; */
   width: 100%;
-  height: 500px;
   /* padding: 20px; */
+  /* background-color: thistle; */
+  display: block;
 }
 .banner {
   position: absolute;

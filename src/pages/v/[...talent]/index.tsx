@@ -8,6 +8,8 @@ import talentChannels from '@/constant/talentChannels.json'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import OptionMenu from '@/component/profile/option-menu'
 import { findProfileByQname } from '@/util/sort'
+import Profile from '@/component/profile/profile'
+import Videos from '@/component/videos/videos'
 
 const Talent = ({ personaData, videosData }:
   { personaData: IProfile[], videosData: ICompleteVideo[] }) => {
@@ -28,9 +30,8 @@ const Talent = ({ personaData, videosData }:
 
       <OptionMenu talent={talent} />
 
-      'content' <br />
-      {`LENGTH: ${videos.length}`}
-      {<div style={{ display: 'none' }}>{JSON.stringify(videos, null, 2)}</div>}
+      {router.query.talent.length === 1 && <Profile talent={talent}/>}
+      {router.query.talent[1] === 'videos' && <Videos videos={videos}/>}
     </div>
   )
 }
