@@ -1,40 +1,36 @@
 import Menu from '@/component/navigation/menu'
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import api from '@/config/axios'
 import IProfile from '@/interfaces/profile.interface'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 import talentChannels from '@/constant/talentChannels.json'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
+import OptionMenu from '@/component/profile/option-menu'
+import { findProfileByQname } from '@/util/sort'
 
 const Talent = ({ personaData, videosData }:
   { personaData: IProfile[], videosData: ICompleteVideo[] }) => {
-
-  const [profiles] = useState(personaData);
-  const [videos, setVideos] = useState(videosData);
   const router = useRouter();
-  const talent = router.query.talent;
+  const [videos, setVideos] = useState(videosData);
+  const [talent, setTalent] = useState(findProfileByQname(personaData, router.query.talent[0]));
 
   useEffect(() => {
-    console.log('videos changed');
     setVideos(videosData);
   }, [videosData])
 
+  useEffect(() => {
+    setTalent(findProfileByQname(personaData, router.query.talent[0]));
+  }, [personaData])
+
   return (
-    <div> <Menu profiles={profiles} />
+    <div> <Menu profiles={personaData} />
 
-    
-      {JSON.stringify(router.query, null, 2)}
+      <OptionMenu talent={talent} />
 
-      <br />
-      {talent.length === 1 && <Link href={`/v/${talent[0]}/videos`}><button>videos</button></Link>}
-
-      {talent[1] === 'videos' && <>
-        <Link href={`/v/${talent[0]}`}><button>talent</button></Link>
-        {`LENGTH: ${videos.length}`}
-        {<div style={{display:'none'}}>{JSON.stringify(videos, null, 2)}</div>}
-      </>}
+      'content' <br />
+      {`LENGTH: ${videos.length}`}
+      {<div style={{ display: 'none' }}>{JSON.stringify(videos, null, 2)}</div>}
     </div>
   )
 }
