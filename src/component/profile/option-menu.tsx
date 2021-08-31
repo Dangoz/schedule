@@ -21,7 +21,6 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
   }, [])
 
   const mousemove = (e) => {
-    console.log('x', e.clientX, 'y', e.clientY);
 
     pbutton.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 28)}px, 
     ${getOffset(e.clientY, window.innerHeight, 10)}px, -50px)`;

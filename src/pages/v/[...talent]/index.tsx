@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   let paths = talents.map(talent => ({ params: { talent: [talent] } }));
   paths = [...paths, ...talents.map(talent => ({ params: { talent: [talent, 'videos'] } }))];
 
-  console.log('paths generated for: ', paths);
+  console.log('paths generated for: ', JSON.stringify(paths));
   return {
     paths,
     fallback: false
