@@ -32,7 +32,6 @@
 .nameCard {
   width: 200px;
   height: 200px;
-  /* background-color: red; */
   display: flex;
   position: relative;
 }
@@ -58,6 +57,7 @@
   position: absolute;
   left: 75px;
   top: 170px;
+  white-space: nowrap;
 }
 
 /* buttons */
