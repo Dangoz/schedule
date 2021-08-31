@@ -16,28 +16,24 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
   const query = router.query.talent;
 
   useEffect(() => {
-    window.addEventListener('mousemove', mousemove);
+    !require('@/config/isMobile')(navigator.userAgent) &&
+      window.addEventListener('mousemove', mousemove);
   }, [])
 
   const mousemove = async (e) => {
     console.log('x', e.clientX, 'y', e.clientY);
 
     pbutton.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 28)}px, 
-    ${getOffset(e.clientY, window.innerHeight, 10)}px, -50px)
-    rotateX(${getOffset(e.clientY, window.innerHeight, 3)}deg) 
-    rotateY(${getOffset(e.clientX, window.innerWidth, 9)}deg)`;
+    ${getOffset(e.clientY, window.innerHeight, 10)}px, -50px)`;
     vbutton.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 33)}px, 
-    ${getOffset(e.clientY, window.innerHeight, 13)}px, -50px) 
-    rotateX(${getOffset(e.clientY, window.innerHeight, 3)}deg) 
-    rotateY(${getOffset(e.clientX, window.innerWidth, 9)}deg)`;
+    ${getOffset(e.clientY, window.innerHeight, 13)}px, -50px)`;
     photoRef.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 57)}px, 
-    ${getOffset(e.clientY, window.innerHeight, 20)}px, -100px) 
-    rotateX(${getOffset(e.clientY, window.innerHeight, 3)}deg) 
-    rotateY(${getOffset(e.clientX, window.innerWidth, 25)}deg)`;
+    ${getOffset(e.clientY, window.innerHeight, 20)}px, -100px)`;
     nameRef.current.style.transform = `translate3d(${getOffset(e.clientX, window.innerWidth, 100)}px, 
-    ${getOffset(e.clientY, window.innerHeight, 30)}px, -50px) 
-    rotateX(${getOffset(e.clientY, window.innerHeight, 3)}deg) 
-    rotateY(${getOffset(e.clientX, window.innerWidth, 9)}deg)`;
+    ${getOffset(e.clientY, window.innerHeight, 30)}px, -50px)`;
+
+    // rotateX(${getOffset(e.clientY, window.innerHeight, 0)}deg) 
+    // rotateY(${getOffset(e.clientX, window.innerWidth, 0)}deg)
   }
 
   const getOffset = (position, windowInner, distance) => {
