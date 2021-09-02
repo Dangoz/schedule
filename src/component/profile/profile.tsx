@@ -9,14 +9,22 @@ const Profile = ({ talent }: { talent: IProfile }) => {
   return (
     <div className={ProfileStyle.wrapper}>
 
-      {talent.lore} <br />
-      {talent.videoCount}  <br />
-      {talent.subscriberCount} <br />
-      {talent.viewCount} <br />
+      <div className={ProfileStyle.description}>
+        {talent.lore} <br />
+      </div>
 
-      {talent.youtube} <br />
-      {talent.twitter} <br />
-      {talent.marshmallow} <br />
+      <div className={ProfileStyle.stats}>
+        {talent.subscriberCount} <br />
+        {talent.viewCount} <br />
+        {talent.videoCount}  <br />
+      </div>
+
+      <div className={ProfileStyle.links}>
+        <Link href={talent.youtube} passHref={true}>youtube</Link> <br />
+        <a href={talent.youtube} target={'_blank'}>lala</a>
+        {talent.twitter} <br />
+        {talent.marshmallow} <br />
+      </div>
     </div>
   )
 }

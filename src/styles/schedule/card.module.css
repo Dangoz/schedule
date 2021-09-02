@@ -95,6 +95,7 @@
 
 /* title */
 .title {
+  color: rgba(0,0,0,.85);
   cursor: pointer;
   display: -webkit-box;
   -webkit-line-clamp: 2;
