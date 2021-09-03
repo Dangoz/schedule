@@ -1,0 +1,111 @@
+.wrapper {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.bg {
+  /* z-index: -10;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: gray;
+  filter: blur(12px); */
+}
+
+/* description */
+.description {
+  padding: 10px 2%;
+  display: flex;
+  text-align: center;
+  /* background-color: red; */
+}
+.descriptionText {
+  transition: 0s;
+  margin: 0 auto;
+  max-width: 1000px;
+  border-radius: 0;
+  border: 1px solid #ebeef5;
+  padding: 10px;
+  line-height: normal;
+  font-family: 'Bodoni Moda', serif;
+  box-shadow: 0px 0px 0px 0px black;
+  background-color: #16191900;
+}
+.descriptionText:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.356);
+  border: 1px solid white;
+}
+
+/* row col */
+.row {
+  position: relative;
+  max-width: 1000px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+.statsCol {
+  display: flex;
+  justify-content: center;
+}
+
+/* links */
+.links {
+  padding: 10px 0;
+}
+.linkCol {
+  padding: 10px 0;
+  position: relative;
+}
+.icon {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 0;
+  border: 1px solid #ebeef5;
+  transition: 0.5s;
+}
+.icon:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.356);
+}
+.youtubeIcon {
+  margin: 0 auto;
+  font-size: 40px;
+  color: red;
+}
+.twitterIcon {
+  margin: 0 auto;
+  font-size: 40px;
+}
+.marshmallow {
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+}
+
+/* stats */
+.stats {
+  width: 500px;
+  border-radius: 0;
+  border: 1px solid #ebeef5;
+  transition: 0.5s;
+}
+.stats:hover {
+  transition: 0.5s;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.356);
+}
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  text-align: center;
+  font-size: 15px;
+}
+.statsIcon {
+  color: #111111;
+  font-size: 25px;
+}
