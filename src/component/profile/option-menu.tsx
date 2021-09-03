@@ -42,7 +42,6 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
   return (
     <div className={OptionMenuStyle.wrapper}>
 
-      {/* <div className={OptionMenuStyle.blur}/> */}
       <div className={OptionMenuStyle.banner} style={{ backgroundImage: `url(${talent.banner})` }} />
 
       <Row justify={'center'} className={OptionMenuStyle.row}>

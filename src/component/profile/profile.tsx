@@ -12,9 +12,9 @@ const Profile = ({ talent }: { talent: IProfile }) => {
     setIsMobile(require('@/config/isMobile')(navigator.userAgent));
   }, [])
 
-  return (
-    <div className={ProfileStyle.wrapper} style={{ marginTop: isMobile ? '0px' : '40px' }}>
-      <div className={ProfileStyle.bg} />
+  return (<>
+    <div className={ProfileStyle.wrapper} style={{ paddingTop: isMobile ? '10px' : '50px' }}>
+      <div className={ProfileStyle.bg} style={{ backgroundImage: `url(${talent.banner.split('=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj')[0]})` }} />
 
       <div className={ProfileStyle.description}>
         <div className={ProfileStyle.descriptionText}>
@@ -72,7 +72,7 @@ const Profile = ({ talent }: { talent: IProfile }) => {
       </Row>
 
     </div>
-  )
+  </>)
 }
 
 export default Profile
