@@ -1,7 +1,7 @@
 import IProfile from '@/interfaces/profile.interface'
 import { useState, useEffect } from 'react'
 import { Row, Col, Divider } from 'antd'
-import { YoutubeFilled, TwitterOutlined, StarTwoTone, VideoCameraTwoTone, EyeFilled } from '@ant-design/icons'
+import { YoutubeFilled, TwitterOutlined, StarTwoTone, VideoCameraTwoTone, EyeFilled, StarFilled, VideoCameraFilled } from '@ant-design/icons'
 import Link from 'next/link'
 import ProfileStyle from '@/styles/profile/profile.module.css'
 
@@ -18,8 +18,7 @@ const Profile = ({ talent }: { talent: IProfile }) => {
 
       <div className={ProfileStyle.description}>
         <div className={ProfileStyle.descriptionText}>
-          {/* Signature
-        <Divider style={{margin: '5px 0 3px 0'}}/> */}
+
           {talent.lore}
           <Divider style={{ margin: '7px 0 3px 0' }} />
         </div>
@@ -30,11 +29,26 @@ const Profile = ({ talent }: { talent: IProfile }) => {
 
           <Row className={ProfileStyle.links} justify={'center'} >
             <Col xs={8} sm={24} md={24} lg={24} className={ProfileStyle.linkCol}>
-              <a href={talent.youtube} target={'_blank'}><div className={ProfileStyle.icon}><YoutubeFilled className={ProfileStyle.youtubeIcon} /></div></a></Col>
+              <a href={talent.youtube} target={'_blank'}>
+                <div className={ProfileStyle.container}>
+                  <div className={ProfileStyle.icon}><YoutubeFilled className={ProfileStyle.youtubeIcon} /></div>
+                </div>
+              </a>
+            </Col>
             <Col xs={8} sm={24} md={24} lg={24} className={ProfileStyle.linkCol}>
-              <a href={talent.twitter} target={'_blank'}><div className={ProfileStyle.icon}><TwitterOutlined className={ProfileStyle.twitterIcon} /></div></a></Col>
+              <a href={talent.twitter} target={'_blank'}>
+                <div className={ProfileStyle.container}>
+                  <div className={ProfileStyle.icon}><TwitterOutlined className={ProfileStyle.twitterIcon} /></div>
+                </div>
+              </a>
+            </Col>
             <Col xs={8} sm={24} md={24} lg={24} className={ProfileStyle.linkCol}>
-              <a href={talent.marshmallow} target={'_blank'}><div className={ProfileStyle.icon}><img className={ProfileStyle.marshmallow} src="/marshmallow.png" alt="marshmallow" /></div></a></Col>
+              <a href={talent.marshmallow} target={'_blank'}>
+                <div className={ProfileStyle.container}>
+                  <div className={ProfileStyle.icon}><img className={ProfileStyle.marshmallow} src="/marshmallow.png" alt="marshmallow" /></div>
+                </div>
+              </a>
+            </Col>
           </Row>
         </Col>
 
@@ -43,7 +57,7 @@ const Profile = ({ talent }: { talent: IProfile }) => {
           <div className={ProfileStyle.stats}>
             <Divider style={{ margin: '7px 0 7px 0', fontSize: 16, fontWeight: 500 }} orientation={'left'}>Subscribers</Divider>
             <div className={ProfileStyle.data}>
-              <div className={ProfileStyle.box}><StarTwoTone className={ProfileStyle.statsIcon} twoToneColor={'gold'} /><br />{talent.subscriberCount}</div>
+              <div className={ProfileStyle.box}><StarFilled className={ProfileStyle.statsIcon} style={{ color: 'gold' }} /><br />{talent.subscriberCount}</div>
             </div>
             <Divider style={{ margin: '7px 0 7px 0', fontSize: 16, fontWeight: 500 }} orientation={'left'}>Views</Divider>
             <div className={ProfileStyle.data}>
@@ -51,7 +65,7 @@ const Profile = ({ talent }: { talent: IProfile }) => {
             </div>
             <Divider style={{ margin: '7px 0 7px 0', fontSize: 16, fontWeight: 500 }} orientation={'left'}>Videos</Divider>
             <div className={ProfileStyle.data}>
-              <div className={ProfileStyle.box}><VideoCameraTwoTone className={ProfileStyle.statsIcon} twoToneColor={'#1890ff'} /><br />{talent.videoCount}</div>
+              <div className={ProfileStyle.box}><VideoCameraFilled className={ProfileStyle.statsIcon} style={{ color: '#1890ff' }} /><br />{talent.videoCount}</div>
             </div>
           </div>
         </Col>
