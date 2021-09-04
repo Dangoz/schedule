@@ -1,8 +1,3 @@
-.tag {
-  cursor: pointer;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
 .wrapper {
   padding: 10px 1%;
 
@@ -15,4 +10,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+.tag {
+  cursor: pointer;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }

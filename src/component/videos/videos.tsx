@@ -28,10 +28,6 @@ const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
     }, 500);
   }, [selectedTags]);
 
-  useEffect(() => {
-    console.log('p', page);
-  }, [page])
-
   return (<>
     <div className={VideoStyle.wrapper} style={{ paddingTop: isMobile ? '10px' : '40px' }}>
 
