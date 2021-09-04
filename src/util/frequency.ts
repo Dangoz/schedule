@@ -22,7 +22,7 @@ export default class Frequency {
     frequencyLists = frequencyLists.sort((a, b) => {
       return b.length - a.length;
     })
-    console.log('after', frequencyLists);
+    // console.log('after', frequencyLists);
     const sortedData: T[] = frequencyLists.map(list => list[0]);
     return sortedData;
   }
