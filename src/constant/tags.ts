@@ -4,7 +4,6 @@
 export const colorPresets = [
   'pink', 'magenta', 'red', 'volcano', 'orange', 'yellow', 
   'gold', 'cyan', 'lime', 'green', 'blue', 'geekblue', 'purple',
-  // 'success', 'processing', 'error', 'warning'
 ]
 
 /**
@@ -25,7 +24,7 @@ export const blockedTagList = [
  */
 
 export const blockedKeyword = [
-  'phaseconnect', 'vtube', 'youtube', 'pippapipkin', 'pipkinpippa', 'fujikurauruka',
+  // 'phaseconnect', 'vtube', 'youtube', 'pippapipkin', 'pipkinpippa', 'fujikurauruka',
   'asheliarinkou', 'tenmamaemi', 'shisuimichiru', 'utatanenasa', 'hakushikaiori',
   '白鹿いおり', '紫翠みちる', 'maemitenma', 'rinkouashelia'
 ]

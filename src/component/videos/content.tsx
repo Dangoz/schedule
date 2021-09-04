@@ -14,7 +14,7 @@ const Content = ({ videos, isLoading }: { videos: ICompleteVideo[], isLoading: b
 
       {isLoading ? <Spin/> : content.length}
       <br/> {JSON.stringify(isLoading)}
-      <br/> {JSON.stringify(content, null, 2)}
+      {/* <br/> {JSON.stringify(content, null, 2)} */}
     </div>
   )
 }
