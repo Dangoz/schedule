@@ -33,6 +33,21 @@ export const purifyTags = (tags: string[]): string[] => {
 const convert = (tag: string): string => {
   let result = tag.toLocaleLowerCase().split(' ').join('').split('-').join('');
   if (result[0] === '#') result = result.slice(1, result.length);
-  
+
+  return result;
+}
+
+// generate colors for tags from color presets, shuffle
+export const generateColors = (presets: string[], tagCount: number): string[] => {
+  let result = [];
+
+  while (result.length < tagCount) {
+    let color: string;
+    do {
+      color = presets[Math.floor(Math.random() * presets.length)];
+    } while (result.length > 0 && result[result.length - 1] === color)
+    result.push(color);
+  }
+
   return result;
 }

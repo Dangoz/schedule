@@ -1,3 +1,11 @@
+/**
+ * color presets from antd <Tag> component
+ */
+export const colorPresets = [
+  'pink', 'magenta', 'red', 'volcano', 'orange', 'yellow', 
+  'gold', 'cyan', 'lime', 'green', 'blue', 'geekblue', 'purple',
+  // 'success', 'processing', 'error', 'warning'
+]
 
 /**
  * tags EQUAL to any item within the list are filtered out
