@@ -13,6 +13,7 @@ const Page = ({ count, pagesize, setPage, page, isMobile }:
   return (
     <div className={PageStyle.wrapper}>
       <Pagination
+        showSizeChanger={false}
         defaultCurrent={1}
         current={page}
         defaultPageSize={pagesize}
