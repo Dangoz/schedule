@@ -1,14 +1,20 @@
 .wrapper {
   padding: 10px 1%;
-
+  position: relative;
   display: flex;
   justify-content: center;
-  background-color: teal;
+  /* background-color: teal; */
 }
-.spin {
-  font-size: 16px;
+
+.spinWrapper {
+  padding: 30px;
+  height: 500px;
 }
 .notFound {
+  
+  padding: 30px;
+  height: 200px;
+
   font-size: 18px;
   font-weight: 500;
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Divider } from 'antd'
 import { ClockCircleOutlined, YoutubeOutlined } from '@ant-design/icons'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import IProfile from '@/interfaces/profile.interface'
@@ -30,7 +31,15 @@ const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) =>
         </div>
       </a>
 
-      {video.duration}
+      <a href={`${video.link}`} target={'_blank'}>
+        <div className={CardStyle.title}>{video.title}</div>
+      </a>
+
+      <Divider plain={true} type={'horizontal'}>
+        <div className={CardStyle.name}>{talent.name}</div>
+      </Divider>
+
+      {/* {video.duration} */}
     </div>
   </>)
 }

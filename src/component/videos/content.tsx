@@ -20,7 +20,7 @@ const Content = ({ videos, isLoading, talent }:
       {videos.length === 0
         ? <div className={ContentStyle.notFound}>Not Found</div>
         : isLoading
-          ? <Spin className={ContentStyle.spin} />
+          ? <div className={ContentStyle.spinWrapper}><Spin size={'large'} /></div>
 
           : <div>
             <Row className={ContentStyle.row} gutter={[0, 0]}

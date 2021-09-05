@@ -35,7 +35,7 @@ const Videos = ({ videos, talent }: { videos: ICompleteVideo[], talent: IProfile
 
       <div className={VideoStyle.tag}>
         <TagPool tagList={purifyTags(getTagsFromVideos(videos))}
-          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} />
+          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} isMobile={isMobile}/>
       </div>
 
       <div className={VideoStyle.content}>
@@ -45,7 +45,7 @@ const Videos = ({ videos, talent }: { videos: ICompleteVideo[], talent: IProfile
 
 
       <div className={VideoStyle.pagination}>
-        <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page}/>
+        <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page} isMobile={isMobile}/>
       </div>
 
     </div>

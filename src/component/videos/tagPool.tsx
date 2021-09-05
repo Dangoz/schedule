@@ -5,8 +5,8 @@ import TagStyle from '@/styles/videos/tag.module.css'
 import { colorPresets } from '@/constant/tags'
 import { generateColors } from './helpers'
 
-const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage }:
-  { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>> }) => {
+const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
+  { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>>, isMobile: boolean }) => {
 
   const [tags, setTags] = useState(Frequency.sortByFrequency(tagList));
   const [inuse, setInuse] = useState(tags.slice(0, 20));
