@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { Pagination } from 'antd'
+import PageStyle from '@/styles/videos/page.module.css'
 
 const Page = ({ count, pagesize, setPage, page }:
   { count: number, pagesize: number, setPage: Dispatch<SetStateAction<number>>, page: number }) => {
@@ -9,7 +10,7 @@ const Page = ({ count, pagesize, setPage, page }:
   }
 
   return (
-    <>
+    <div className={PageStyle.wrapper}>
       <Pagination
         defaultCurrent={1}
         current={page}
@@ -17,7 +18,7 @@ const Page = ({ count, pagesize, setPage, page }:
         total={count}
         onChange={pageChange}
       />
-    </>
+    </div>
   )
 }
 

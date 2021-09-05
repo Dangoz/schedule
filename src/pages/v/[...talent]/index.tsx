@@ -31,7 +31,7 @@ const Talent = ({ personaData, videosData }:
       <OptionMenu talent={talent} />
 
       {router.query.talent.length === 1 && <Profile talent={talent}/>}
-      {router.query.talent[1] === 'videos' && <Videos videos={videos}/>}
+      {router.query.talent[1] === 'videos' && <Videos videos={videos} talent={talent}/>}
     </div>
   )
 }

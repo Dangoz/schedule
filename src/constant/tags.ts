@@ -26,5 +26,6 @@ export const blockedKeyword = [
  */
  export const blockedTagList = [
   'animegirl', 'anime', 'pippa', 'pipkin', 'v-tuber', 'englishvtuber',
-  'vstreamer', 'pokemonswsh', 'ffxiv', 'minceraft', 'aliceinwonderland'
+  'vstreamer', 'pokemonswsh', 'ffxiv', 'minceraft', 'aliceinwonderland',
+  'mabi', 'mabigiveaway'
 ]

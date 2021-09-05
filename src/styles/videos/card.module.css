@@ -1,0 +1,73 @@
+.card {
+  border-radius: 4px;
+  background-color: red;
+}
+.icon {
+  font-size: 28px;
+  padding: 10px;
+}
+
+/* top */
+.top {
+  /* min-width: 500px; */
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* background-color: gainsboro; */
+  border-radius: 4px;
+}
+.timer {
+  padding-left: 0px;
+  font-family: sans-serif;
+  cursor: default;
+}
+.defaultTimer {
+  font-size: 20px;
+}
+
+/* content */
+.content {
+  position: relative;
+  cursor: pointer;
+}
+.hovering {
+  opacity: 0;
+  transition: 0.25s;
+}
+.hovering:hover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: 0.25s;
+}
+.mask {
+  position: absolute;
+  background-color: black;
+  opacity: 0.35;
+  width: inherit;
+  height: 100%;
+  width: 100%;
+}
+.youtubeIconWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.youtubeIcon {
+  margin: 0 auto;
+  position: relative;
+  font-size: 500%;
+  color: whitesmoke;
+}
+.thumbnail {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 4px;
+  /* opacity: 0; */
+}

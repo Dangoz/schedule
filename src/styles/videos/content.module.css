@@ -1,0 +1,22 @@
+.wrapper {
+  padding: 10px 1%;
+
+  display: flex;
+  justify-content: center;
+  background-color: teal;
+}
+.spin {
+  font-size: 16px;
+}
+.notFound {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* row */
+.row {
+  /* padding: 0 1% 0 1%; */
+}
+.col {
+  padding: 10px;
+}

@@ -3,6 +3,7 @@
 
   display: flex;
   justify-content: center;
+  background-color: thistle;
 }
 .tags {
   max-width: 1000px;

@@ -1,13 +1,14 @@
 import ICompleteVideo from '@/interfaces/complete-video.interface'
+import IProfile from '@/interfaces/profile.interface'
 import { useState, useEffect } from 'react'
-import { Tag, Pagination } from 'antd'
+import dayjs from 'dayjs'
 import VideoStyle from '@/styles/videos/video.module.css'
 import TagPool from './tagPool'
 import Content from './content'
 import Page from './page'
 import { filterVideosByTags, getTagsFromVideos, purifyTags } from './helpers'
 
-const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
+const Videos = ({ videos, talent }: { videos: ICompleteVideo[], talent: IProfile }) => {
   const [isMobile, setIsMobile] = useState(null);
   const [selectedTags, setSelectedTags] = useState([]);
   const [displayedVideos, setDisplayedVideos] = useState(videos);
@@ -23,6 +24,7 @@ const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
     setIsLoading(true);
     setTimeout(() => {
       let newVideos = filterVideosByTags(videos, selectedTags);
+      newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt))
       setDisplayedVideos(newVideos);
       setIsLoading(false);
     }, 500);
@@ -38,7 +40,7 @@ const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
 
       <div className={VideoStyle.content}>
         <Content videos={displayedVideos.slice(pagesize * (page - 1) + 1, pagesize * page + 1)}
-          isLoading={isLoading} />
+          isLoading={isLoading} talent={talent} />
       </div>
 
 
