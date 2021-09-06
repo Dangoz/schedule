@@ -14,13 +14,12 @@ const Content = ({ videos, isLoading }:
     setContent(videos);
   }, [videos])
 
-  return (
-    <div className={ContentStyle.wrapper}>
+  return (<>
 
       {videos.length === 0
-        ? <div className={ContentStyle.notFound}>Not Found</div>
+        ? <div className={ContentStyle.wrapper}><div className={ContentStyle.notFound}>Not Found</div></div>
         : isLoading
-          ? <div className={ContentStyle.spinWrapper}><Spin size={'large'} /></div>
+          ? <div className={ContentStyle.wrapper}><div className={ContentStyle.spinWrapper}><Spin size={'large'} /></div></div>
 
           : <div>
             <Row className={ContentStyle.row} gutter={[0, 0]}
@@ -34,8 +33,7 @@ const Content = ({ videos, isLoading }:
             </Row>
           </div>}
 
-    </div>
-  )
+  </>)
 }
 
 export default Content
