@@ -87,6 +87,9 @@
   padding-top: 3px;
   padding-right: 15px;
   padding-left: 2px;
+
+  word-wrap: break-word;
+  max-width: 543px;
 }
 .title:hover {
   color: #00a1d6;
