@@ -24,7 +24,8 @@ const Videos = ({ videos, talent }: { videos: ICompleteVideo[], talent: IProfile
     setIsLoading(true);
     setTimeout(() => {
       let newVideos = filterVideosByTags(videos, selectedTags);
-      newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt))
+      newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
+      console.log('newVideos', newVideos);
       setDisplayedVideos(newVideos);
       setIsLoading(false);
     }, 500);
@@ -35,17 +36,17 @@ const Videos = ({ videos, talent }: { videos: ICompleteVideo[], talent: IProfile
 
       <div className={VideoStyle.tag}>
         <TagPool tagList={purifyTags(getTagsFromVideos(videos))}
-          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} isMobile={isMobile}/>
+          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} isMobile={isMobile} />
       </div>
 
       <div className={VideoStyle.content}>
-        <Content videos={displayedVideos.slice(pagesize * (page - 1) + 1, pagesize * page + 1)}
+        <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)}
           isLoading={isLoading} talent={talent} />
       </div>
 
 
       <div className={VideoStyle.pagination}>
-        <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page} isMobile={isMobile}/>
+        <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page} isMobile={isMobile} />
       </div>
 
     </div>
