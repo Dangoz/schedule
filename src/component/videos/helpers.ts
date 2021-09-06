@@ -51,3 +51,17 @@ export const generateColors = (presets: string[], tagCount: number): string[] =>
 
   return result;
 }
+
+//  parse duration from format (PT 00H 00M 00S) to (00:00:00)
+export const parseDuration = (string: string): string => {
+  let timeList = [string.slice(2, string.length)];
+  timeList = timeList[0].split('H');
+  timeList = [...timeList.slice(0, timeList.length -1), ...timeList[timeList.length - 1].split('M')];
+  timeList = [...timeList.slice(0, timeList.length -1), timeList[timeList.length - 1].split('S')[0]];
+  timeList = timeList.map((time, index) => {
+    if (time.length === 1 && index) return '0' + time;
+    return time;
+  })
+  let result = timeList.join(':');
+  return result;
+}

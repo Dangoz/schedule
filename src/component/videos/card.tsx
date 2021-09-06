@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { Divider } from 'antd'
-import { ClockCircleOutlined, YoutubeOutlined } from '@ant-design/icons'
+import { ClockCircleOutlined, YoutubeOutlined, PlaySquareFilled } from '@ant-design/icons'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import IProfile from '@/interfaces/profile.interface'
 import CardStyle from '@/styles/videos/card.module.css'
 import dayjs from 'dayjs'
+import { parseDuration } from './helpers'
 
 const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) => {
   const [timestamp] = useState(dayjs(video.availableAt));
@@ -12,20 +13,12 @@ const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) =>
   return (<>
     <div className={CardStyle.card}>
 
-      <div className={CardStyle.top}>
-        <div className={CardStyle.timerIcon}>
-          {<ClockCircleOutlined className={CardStyle.icon} />}
-        </div>
-        <div className={CardStyle.timer}>
-          {<div className={CardStyle.defaultTimer}>{timestamp.format('YYYY/MM/DD h:mm A')}</div>}
-        </div>
-      </div>
-
       <a href={`${video.link}`} target={'_blank'}>
         <div className={CardStyle.content}>
+          <div className={CardStyle.durationWrapper}><div className={CardStyle.duration}>{parseDuration(video.duration)}</div></div>
           <div className={CardStyle.hovering}>
-            <div className={CardStyle.mask} style={{}} />
-            <div className={CardStyle.youtubeIconWrapper} style={{}}><YoutubeOutlined className={CardStyle.youtubeIcon} /></div>
+            <div className={CardStyle.mask} />
+            <div className={CardStyle.youtubeIconWrapper} ><YoutubeOutlined className={CardStyle.youtubeIcon} /></div>
           </div>
           <img src={video.thumbnail} className={CardStyle.thumbnail} />
         </div>
@@ -35,11 +28,23 @@ const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) =>
         <div className={CardStyle.title}>{video.title}</div>
       </a>
 
-      <Divider plain={true} type={'horizontal'}>
+      {/* <Divider plain={true} type={'horizontal'}>
         <div className={CardStyle.name}>{talent.name}</div>
-      </Divider>
+      </Divider> */}
 
-      {/* {video.duration} */}
+      <div className={CardStyle.bottom}>
+        
+        <div className={CardStyle.viewWrapper}>
+          {<PlaySquareFilled className={CardStyle.icon} />}
+          <div className={CardStyle.view}>{video.liveViewCount}</div>
+        </div>
+
+        <div className={CardStyle.dateWrapper}>
+          {<ClockCircleOutlined className={CardStyle.icon} />}
+          <div className={CardStyle.date}>{timestamp.format('YYYY/MM/DD')}</div>
+        </div>
+      </div>
+
     </div>
   </>)
 }

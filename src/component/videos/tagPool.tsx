@@ -29,8 +29,7 @@ const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
           <Tag key={tag} color={selectedTags.indexOf(tag) !== -1 ? `${colors[index]}-inverse` : `${colors[index]}`}
             onClick={tagToggle} className={TagStyle.tag}>{tag}</Tag>
         ))}
-        {selectedTags.length}
-
+        
       </div>
     </div>
   )

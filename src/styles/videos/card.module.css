@@ -3,25 +3,8 @@
   /* background-color: red; */
 }
 .icon {
-  font-size: 28px;
-  padding: 10px;
-}
-
-/* top */
-.top {
-  height: 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 4px;
-}
-.timer {
-  padding-left: 0px;
-  font-family: sans-serif;
-  cursor: default;
-}
-.defaultTimer {
-  font-size: 20px;
+  font-size: 14px;
+  padding: 0 5px 0 2px;
 }
 
 /* content */
@@ -67,6 +50,21 @@
   width: 100%;
   border-radius: 4px;
 }
+.durationWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.duration {
+  color: white;
+  background-color: #161919b6;
+  font-size: 12px;
+  padding: 0 5px;
+  margin: 5px;
+}
 
 /* title */
 .title {
@@ -89,8 +87,38 @@
   padding-top: 3px;
   padding-right: 15px;
   padding-left: 2px;
-  text-align: center;
 }
 .title:hover {
   color: #00a1d6;
+}
+
+/* bottom */
+.bottom {
+  height: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 4px;
+}
+.viewWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: sans-serif;
+  cursor: default;
+  margin-right: 12px;
+}
+.view {
+  font-size: 14px;
+}
+.dateWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: sans-serif;
+  cursor: default;
+}
+.date {
+  font-size: 14px;
 }
