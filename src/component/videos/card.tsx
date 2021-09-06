@@ -7,7 +7,7 @@ import CardStyle from '@/styles/videos/card.module.css'
 import dayjs from 'dayjs'
 import { parseDuration } from './helpers'
 
-const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) => {
+const Card = ({ video }: { video: ICompleteVideo }) => {
   const [timestamp] = useState(dayjs(video.availableAt));
 
   return (<>
@@ -28,12 +28,8 @@ const Card = ({ video, talent }: { video: ICompleteVideo, talent: IProfile }) =>
         <div className={CardStyle.title}>{video.title}</div>
       </a>
 
-      {/* <Divider plain={true} type={'horizontal'}>
-        <div className={CardStyle.name}>{talent.name}</div>
-      </Divider> */}
-
       <div className={CardStyle.bottom}>
-        
+
         <div className={CardStyle.viewWrapper}>
           {<PlaySquareFilled className={CardStyle.icon} />}
           <div className={CardStyle.view}>{video.liveViewCount}</div>

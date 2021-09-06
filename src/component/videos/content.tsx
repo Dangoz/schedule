@@ -5,8 +5,8 @@ import { Spin, Row, Col } from 'antd'
 import ContentStyle from '@/styles/videos/content.module.css'
 import Card from './card'
 
-const Content = ({ videos, isLoading, talent }: 
-  { videos: ICompleteVideo[], isLoading: boolean, talent: IProfile }) => {
+const Content = ({ videos, isLoading }:
+  { videos: ICompleteVideo[], isLoading: boolean }) => {
   const [content, setContent] = useState(videos);
   const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
 
@@ -28,7 +28,7 @@ const Content = ({ videos, isLoading, talent }:
 
               {content.map(video => (
                 <Col xs={span.xs} sm={span.sm} md={span.md} lg={span.lg} className={ContentStyle.col} key={video.link}>
-                    <Card video={video} talent={talent}/>
+                  <Card video={video} />
                 </Col>
               ))}
             </Row>

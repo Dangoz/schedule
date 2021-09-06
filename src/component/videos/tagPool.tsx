@@ -27,7 +27,6 @@ const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
 
   const moreTags = (e) => {
     if (noMoreTags) { setInuseCount(20); return setNoMoreTags(false); }
-    console.log('more tags!');
     setInuseCount(inuseCount + 20);
     if (inuseCount >= tags.length) setNoMoreTags(true);
   }
