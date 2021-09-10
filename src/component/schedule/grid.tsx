@@ -43,7 +43,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
 
     filterVideos().then(videos => {
       setContent(videos);
-      setTitle(criteria.format('MM / DD'))
+      setTitle(criteria.format(isAfterwards ? 'MM / DD [ ~ Future]' : 'MM / DD'))
       setIsloading(false);
     })
   }, []);

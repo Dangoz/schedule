@@ -17,10 +17,14 @@ export const sortTalentsByGeneration = (profiles: IProfile[], order: string[], g
   return talents;
 }
 
-//find profile of the video's channel
+// find profile of the video's channel
 export const findProfileByVideo = (profiles: IProfile[], video: IStreamVideo): IProfile => {
-  const profile = profiles.find(p => {
-    return p.youtube === `https://www.youtube.com/channel/${video.channelId}`;
-  })
+  const profile = profiles.find(p => p.youtube === `https://www.youtube.com/channel/${video.channelId}`);
+  return profile;
+}
+
+// find profile for url query name. (EX: /v/pipkinpippa corresponds to Pipkin Pippa's profile)
+export const findProfileByQname = (profiles: IProfile[], queryName: string): IProfile => {
+  const profile = profiles.find(p => p.name.toLowerCase().split(' ').join('') === queryName);
   return profile;
 }

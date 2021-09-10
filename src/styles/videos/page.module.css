@@ -1,0 +1,7 @@
+.wrapper {
+  padding: 10px 1%;
+
+  display: flex;
+  justify-content: center;
+  /* background-color: tomato; */
+}

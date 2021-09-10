@@ -1,0 +1,30 @@
+.wrapper {
+  padding: 10px 1%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  /* min-height: 300px; */
+  /* height: 100%; */
+}
+
+.spinWrapper {
+  padding: 80px;
+  height: 800px;
+}
+.notFound {
+  
+  padding: 80px;
+  /* height: 200px; */
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* row */
+.row {
+  padding: 10px 1%;
+}
+.col {
+  padding: 10px;
+}

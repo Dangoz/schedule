@@ -62,7 +62,7 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
             </div>
           </div>
 
-          <Link href={`${video.link}`}>
+          <a href={`${video.link}`} target={'_blank'}>
             <div className={CardStyle.content}>
               <div className={CardStyle.hovering}>
                 <div className={CardStyle.mask} style={{}} />
@@ -70,11 +70,11 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
               </div>
               <img src={video.thumbnail} className={CardStyle.thumbnail} />
             </div>
-          </Link>
+          </a>
 
-          <Link href={`${video.link}`}>
+          <a href={`${video.link}`} target={'_blank'}>
             <div className={CardStyle.title}>{video.title}</div>
-          </Link>
+          </a>
 
           <div className={CardStyle.bottom}>
             <Link href={`/v/${talent.href}`}>

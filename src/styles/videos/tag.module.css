@@ -1,0 +1,19 @@
+.wrapper {
+  padding: 10px 1%;
+
+  display: flex;
+  justify-content: center;
+  /* background-color: thistle; */
+}
+.tags {
+  max-width: 1000px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tag {
+  cursor: pointer;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}

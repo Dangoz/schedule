@@ -1,53 +1,10 @@
 .card {
-  /* background-color: gainsboro; */
-  box-shadow: 0 0 4px #69e1ffb2;
   border-radius: 4px;
-  padding: 0 0px 5px 0px;
+  /* background-color: red; */
 }
-
-/* top */
-.top {
-  height: 40px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  /* background-color: gainsboro; */
-  border-radius: 4px;
-}
-/* icons */
 .icon {
-  font-size: 28px;
-  padding: 10px;
-}
-
-/* timer */
-.timer {
-  padding-left: 0px;
-  font-family: sans-serif;
-  cursor: default;
-}
-.liveTimer {
-  color: #f00;
-  background-color: rgba(255, 0, 0, 0.062);
   font-size: 14px;
-  font-weight: 510;
-  border: 2px solid #f00;
-  border-radius: 4px;
-  padding: 1px 4px;
-  /* box-shadow: 0 0 10px #69e0ff,0 0 20px #69e0ff,0 0 40px #69e0ff; */
-}
-.countdown {
-  font-weight: 400;
-  width: 100%;
-  height: 30px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 0px;
-}
-.defaultTimer {
-  font-size: 20px;
+  padding: 0 5px 0 2px;
 }
 
 /* content */
@@ -91,8 +48,22 @@
   display: block;
   object-fit: cover;
   width: 100%;
-  border-radius: 0px;
-  /* opacity: 0; */
+  border-radius: 4px;
+}
+.durationWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.duration {
+  color: white;
+  background-color: #161919b6;
+  font-size: 12px;
+  padding: 0 5px;
+  margin: 5px;
 }
 
 /* title */
@@ -116,7 +87,9 @@
   padding-top: 3px;
   padding-right: 15px;
   padding-left: 2px;
-  text-align: center;
+
+  word-wrap: break-word;
+  max-width: 543px;
 }
 .title:hover {
   color: #00a1d6;
@@ -124,24 +97,31 @@
 
 /* bottom */
 .bottom {
-  position: relative;
+  height: 40px;
+  padding-bottom: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  border-radius: 4px;
 }
-.photo {
-  cursor: pointer;
-  object-fit: cover;
-  width: 46px;
-  height: 46px;
-  display: block;
-  border-radius: 50px;
+.viewWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: sans-serif;
+  cursor: default;
+  margin-right: 12px;
 }
-.photo:hover {
-  transition: 0.17s;
-  box-shadow: 0 0 5px #69e0ff,0 0 5px #69e0ff,0 0 10px #69e0ff;
+.view {
+  font-size: 14px;
 }
-.name {
-  cursor: pointer;
-  color: #1890ff;
+.dateWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: sans-serif;
+  cursor: default;
+}
+.date {
+  font-size: 14px;
 }
