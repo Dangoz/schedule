@@ -1,6 +1,6 @@
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import { blockedTagList, blockedKeyword } from '@/constant/tags'
-import Frequency from '@/util/frequency'
+import Frequency from '@/functions/frequency'
 
 // filter videos by a list of tags
 export const filterVideosByTags = (videos: ICompleteVideo[], tags: string[]): ICompleteVideo[] => {
@@ -56,8 +56,8 @@ export const generateColors = (presets: string[], tagCount: number): string[] =>
 export const parseDuration = (string: string): string => {
   let timeList = [string.slice(2, string.length)];
   timeList = timeList[0].split('H');
-  timeList = [...timeList.slice(0, timeList.length -1), ...timeList[timeList.length - 1].split('M')];
-  timeList = [...timeList.slice(0, timeList.length -1), timeList[timeList.length - 1].split('S')[0]];
+  timeList = [...timeList.slice(0, timeList.length - 1), ...timeList[timeList.length - 1].split('M')];
+  timeList = [...timeList.slice(0, timeList.length - 1), timeList[timeList.length - 1].split('S')[0]];
   timeList = timeList.map((time, index) => {
     if (time.length === 1 && index) return '0' + time;
     return time;

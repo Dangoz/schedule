@@ -1,7 +1,7 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Tag } from 'antd'
 import { SettingTwoTone } from '@ant-design/icons'
-import Frequency from '@/util/frequency'
+import Frequency from '@/functions/frequency'
 import TagStyle from '@/styles/videos/tag.module.css'
 import { colorPresets } from '@/constant/tags'
 import { generateColors } from './helpers'

@@ -5,7 +5,7 @@ import DrawerStyle from '@/styles/navigation/drawer.module.css'
 import { ScheduleOutlined, HomeOutlined } from '@ant-design/icons'
 import IProfile from '@/interfaces/profile.interface'
 import { g1order } from '@/constant/drawerOrder'
-import { sortTalentsByGeneration } from '@/util/sort'
+import { sortTalentsByGeneration } from '@/functions/sort'
 
 const DrawerMenu = ({ visible, setVisible, profiles }: {
   visible: boolean,
