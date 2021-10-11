@@ -1,7 +1,5 @@
 .wrapper {
-
   height: 80vh;
-  /* background-color: red; */
   text-align: center;
 }
 .logo {
@@ -9,9 +7,4 @@
 }
 .logo img {
   display: none;
-  /* position: absolute; */
-
-  /* width: 100vw; */
-  /* height: 300px; */
-  /* background-color: blue; */
 }
