@@ -5,9 +5,11 @@ import ICompleteVideo from '@/interfaces/complete-video.interface'
 import IProfile from '@/interfaces/profile.interface'
 import CardStyle from '@/styles/videos/card.module.css'
 import dayjs from 'dayjs'
-import { parseDuration } from './helpers'
+import { parseDuration } from '@/functions/helpers'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 const Card = ({ video }: { video: ICompleteVideo }) => {
+  const theme = useThemeContext();
   const [timestamp] = useState(dayjs(video.availableAt));
 
   return (<>
@@ -30,12 +32,12 @@ const Card = ({ video }: { video: ICompleteVideo }) => {
 
       <div className={CardStyle.bottom}>
 
-        <div className={CardStyle.viewWrapper}>
+        <div className={CardStyle.viewWrapper} style={{ color: theme.textLow }}>
           {<PlaySquareFilled className={CardStyle.icon} />}
           <div className={CardStyle.view}>{video.liveViewCount}</div>
         </div>
 
-        <div className={CardStyle.dateWrapper}>
+        <div className={CardStyle.dateWrapper} style={{ color: theme.textLow }}>
           {<ClockCircleOutlined className={CardStyle.icon} />}
           <div className={CardStyle.date}>{timestamp.format('YYYY/MM/DD')}</div>
         </div>

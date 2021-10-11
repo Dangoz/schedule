@@ -68,7 +68,7 @@
 
 /* title */
 .title {
-  color: rgba(0,0,0,.85);
+  color: #adadad;
   cursor: pointer;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -92,7 +92,7 @@
   max-width: 543px;
 }
 .title:hover {
-  color: #00a1d6;
+  color: #ffffff;
 }
 
 /* bottom */

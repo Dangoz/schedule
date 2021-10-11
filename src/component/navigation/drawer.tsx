@@ -44,7 +44,7 @@ const DrawerMenu = ({ visible, setVisible, profiles }: {
             {/* <Menu.Divider /> */}
 
             <SubMenu key='sub1' title='Generation 1' className={DrawerStyle.subMenu}>
-              <Menu style={{ backgroundColor: theme.background, borderColor: theme.background }}>
+              <Menu onSelect={itemSelect} style={{ backgroundColor: theme.background, borderColor: theme.background }}>
                 {g1talents.map(talent => (
                   <Menu.Item key={`${talent.name}`} className={DrawerStyle.item}
                     icon={<div className={DrawerStyle.photo}><img className={DrawerStyle.photoImg} src={`${talent.photo}`} /></div>}>

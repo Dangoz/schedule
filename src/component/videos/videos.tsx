@@ -5,7 +5,7 @@ import VideoStyle from '@/styles/videos/video.module.css'
 import TagPool from './tagPool'
 import Content from './content'
 import Page from './page'
-import { filterVideosByTags, getTagsFromVideos, purifyTags } from './helpers'
+import { filterVideosByTags, getTagsFromVideos, purifyTags } from '@/functions/helpers'
 
 const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
   const [isMobile, setIsMobile] = useState(null);
@@ -26,7 +26,7 @@ const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
       newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
       setDisplayedVideos(newVideos);
       setIsLoading(false);
-    }, 500);
+    }, 300);
   }, [selectedTags]);
 
   return (<>

@@ -16,4 +16,7 @@
   cursor: pointer;
   margin-top: 3px;
   margin-bottom: 3px;
+
+  font-weight: 500;
+  border-width: 1.5px;
 }
