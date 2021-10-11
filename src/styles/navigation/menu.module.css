@@ -41,7 +41,16 @@
   /* background-color: red; */
   height: 64px;
   width: 80px;
-  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* visibility: hidden; */
+}
+.theme {
+  font-size: 33.5px;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .text {

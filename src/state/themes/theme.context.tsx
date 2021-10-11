@@ -13,7 +13,7 @@ export const ThemeWrapper = ({ children }) => {
   };
 
   return (
-    <themeContext.Provider value={themes.spring}>
+    <themeContext.Provider value={themes.dark}>
       {children}
     </themeContext.Provider>
   )
