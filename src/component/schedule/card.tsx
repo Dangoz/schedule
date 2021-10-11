@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { findProfileByVideo, sortTalentsByGeneration } from '@/functions/sort'
 import { Statistic, Divider } from 'antd'
 import { PlayCircleTwoTone, ClockCircleOutlined, FieldTimeOutlined, ClockCircleTwoTone, YoutubeOutlined } from '@ant-design/icons'
+import { useThemeContext } from '@/state/themes/theme.context'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import calendar from 'dayjs/plugin/calendar'
@@ -16,6 +17,7 @@ const { Countdown } = Statistic;
 const countdownLimit: number = 12;
 
 const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }) => {
+  const theme = useThemeContext();
   const [timestamp] = useState(dayjs(video.availableAt));
   const [talent, setTalent] = useState(null);
 
@@ -51,14 +53,14 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
                 ? <PlayCircleTwoTone className={CardStyle.icon + ' ' + CardStyle.liveIcon} twoToneColor={'red'} />
                 : counting
                   ? <ClockCircleTwoTone className={CardStyle.icon} />
-                  : <ClockCircleOutlined className={CardStyle.icon} />}
+                  : <ClockCircleOutlined className={CardStyle.icon} style={{ color: theme.textLow }} />}
             </div>
             <div className={CardStyle.timer}>
               {live === 'live'
                 ? <div className={CardStyle.liveTimer}>LIVE NOW</div>
                 : counting
                   ? <Countdown value={+timestamp} format={"HH [H] mm [M] ss [S]"} className={CardStyle.countdown} valueStyle={{ fontSize: 20, color: '#1890ff', fontFamily: 'sans-serif' }} />
-                  : <div className={CardStyle.defaultTimer}>{timestamp.format('YYYY/MM/DD h:mm A')}</div>}
+                  : <div className={CardStyle.defaultTimer} style={{ color: theme.textLow }}>{timestamp.format('YYYY/MM/DD h:mm A')}</div>}
             </div>
           </div>
 
@@ -73,23 +75,23 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
           </a>
 
           <a href={`${video.link}`} target={'_blank'}>
-            <div className={CardStyle.title}>{video.title}</div>
+            <div className={CardStyle.title}>
+              {video.title}</div>
           </a>
 
           <div className={CardStyle.bottom}>
             <Link href={`/v/${talent.href}`}>
-              <img className={CardStyle.photo} src={`${talent.photo}`} />
+              <img className={CardStyle.photo} src={`${talent.photo}`} style={{}} />
             </Link>
 
-            {/* <Divider type={'vertical'} plain={true}><Link href={`/v/${talent.href}`}>
+            {/* <Divider type={'vertical'} plain={true} style={{ borderColor: '#adadad', height: '100%', margin: '10px' }}><Link href={`/v/${talent.href}`}>
               <div className={CardStyle.name}>{talent.name}</div>
             </Link></Divider> */}
           </div>
 
-          <Divider plain={true}><Link href={`/v/${talent.href}`}>
-            <div className={CardStyle.name}>{talent.name}</div>
+          <Divider plain={true} style={{ borderColor: '#adadad' }}><Link href={`/v/${talent.href}`}>
+            <div className={CardStyle.name} >{talent.name}</div>
           </Link></Divider>
-          {/* <Divider /> */}
 
 
         </div>

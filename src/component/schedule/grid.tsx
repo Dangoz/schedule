@@ -6,12 +6,13 @@ import Card from './card'
 import IProfile from '@/interfaces/profile.interface'
 import dayjs from 'dayjs'
 import dayOfYear from 'dayjs/plugin/dayOfYear'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 dayjs.extend(dayOfYear);
 
 const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
   { criteria: dayjs.Dayjs, videos: IStreamVideo[], isToday: boolean, isAfterwards: boolean, profiles: IProfile[] }) => {
-
+  const theme = useThemeContext();
   const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
   const [title, setTitle] = useState('MM / DD');
   const [content, setContent] = useState(null);
@@ -35,7 +36,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
         })
 
         resolve(result);
-      }, 500)
+      }, 100)
     })
   }
 
@@ -58,7 +59,9 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
       {(!content || (content && content.length > 0)) && <div className={GridStyle.wrapper}>
 
         <div className={GridStyle.titleWrapper}>
-          <div className={GridStyle.title}>{title}</div>
+          <div className={GridStyle.title} style={{ backgroundColor: theme.foreground, color: theme.textHigh }}>
+            {title}
+          </div>
         </div>
 
         <div className={GridStyle.content}>

@@ -95,7 +95,7 @@
 
 /* title */
 .title {
-  color: rgba(0,0,0,.85);
+  color: #adadad;
   cursor: pointer;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -117,7 +117,7 @@
   text-align: center;
 }
 .title:hover {
-  color: #00a1d6;
+  color: #ffffff;
 }
 
 /* bottom */
@@ -137,9 +137,10 @@
 }
 .photo:hover {
   transition: 0.17s;
-  box-shadow: 0 0 5px #69e0ff,0 0 5px #69e0ff,0 0 10px #69e0ff;
+  box-shadow: 0 0 5px #ffffff,0 0 5px #ffffff,0 0 10px #ffffff;
 }
 .name {
   cursor: pointer;
   color: #1890ff;
+  /* color: #ffffff */
 }
