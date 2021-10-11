@@ -5,15 +5,16 @@ import Schedule from '@/component/schedule/schedule'
 import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
 import IStreamVideo from '@/interfaces/stream-video.interface'
-import { personaContext } from '@/component/persona.context'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {
+  const theme = useThemeContext();
 
   return (
-    <div className={HomeStyle.wrapper}>
-        <Menu profiles={personaData} />
-        <Schedule videos={streamVideoData} profiles={personaData}/>
+    <div className={HomeStyle.wrapper} style={{ backgroundColor: theme.background }}>
+      <Menu profiles={personaData} />
+      <Schedule videos={streamVideoData} profiles={personaData} />
     </div>
   )
 }

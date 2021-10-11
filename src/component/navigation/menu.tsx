@@ -6,8 +6,10 @@ import ToTop from './toTop'
 import DrawerMenu from './drawer'
 import IProfile from '@/interfaces/profile.interface'
 const { Header, Sider, Content, Footer } = Layout;
+import { useThemeContext } from '@/state/themes/theme.context'
 
 const Menu = ({ profiles }: { profiles: IProfile[] }) => {
+  const theme = useThemeContext();
   const [visible, setVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -26,7 +28,7 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
     <>
       <DrawerMenu visible={visible} setVisible={setVisible} profiles={profiles} />
       {/* <Layout> */}
-      <div className={MenuStyle.menu} style={{ opacity: scrolled ? 0.8 : 1 }}>
+      <div className={MenuStyle.menu} style={{ opacity: scrolled ? 0.8 : 1, backgroundColor: theme.foreground }}>
 
         <div className={MenuStyle.drawerBlock} >
           {visible

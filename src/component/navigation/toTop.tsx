@@ -2,8 +2,10 @@ import ToTopStyle from '@/styles/navigation/toTop.module.css'
 import { useState, useEffect } from 'react'
 import { BackTop, Button } from 'antd'
 import { RocketFilled, RocketOutlined, RocketTwoTone } from '@ant-design/icons'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 const ToTop = () => {
+  const theme = useThemeContext();
   const [mouseInside, setMouseInside] = useState(false);
 
   useEffect(() => {
@@ -12,7 +14,7 @@ const ToTop = () => {
 
   const mouseEnter = async (e) => setMouseInside(true);
   const mouseLeave = async (e) => setMouseInside(false);
-  
+
   const scroll = async () => {
     if (window.scrollY < 450) {
       setTimeout(() => {
@@ -25,9 +27,9 @@ const ToTop = () => {
     <>
       <div onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} className={ToTopStyle.warpper}>
         <BackTop className={ToTopStyle.backTop} duration={500} visibilityHeight={450} >
-          <Button type='default' className={ToTopStyle.button} shape={'circle'}>
-            {mouseInside ? <RocketFilled className={ToTopStyle.rocket} />
-              : <RocketOutlined className={ToTopStyle.rocket} />}
+          <Button type='default' className={ToTopStyle.button} shape={'circle'} style={{ backgroundColor: theme.foreground }}>
+            {mouseInside ? <RocketFilled className={ToTopStyle.rocket} style={{ color: theme.textHigh }} />
+              : <RocketOutlined className={ToTopStyle.rocket} style={{ color: theme.textLow }} />}
           </Button>
         </BackTop>
       </div>

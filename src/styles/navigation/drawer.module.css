@@ -28,7 +28,7 @@
   width: 100%;
   z-index: 2;
   color: white;
-  text-shadow: 0 0 10px #69e0ff,0 0 10px #69e0ff,0 0 20px #69e0ff;
+  text-shadow: 0 0 10px #ffffff,0 0 10px #ffffff,0 0 20px #ffffff;
 }
 
 .photo {
@@ -36,7 +36,6 @@
   left: 0;
   width: 100px;
   padding-left: 24px;
-  /* background-color: red; */
 }
 .photoImg {
   object-fit: cover;
@@ -49,7 +48,7 @@
   width: 39px;
   height: 39px;
   transition: 0.17s;
-  box-shadow: 0 0 5px #69e0ff,0 0 5px #69e0ff,0 0 5px #69e0ff;
+  box-shadow: 0 0 5px #ffffff,0 0 5px #ffffff,0 0 5px #ffffff;
 }
 .item:hover .photo {
   padding-left: 22px;
