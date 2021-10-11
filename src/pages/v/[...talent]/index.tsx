@@ -7,7 +7,7 @@ import IProfile from '@/interfaces/profile.interface'
 import talentChannels from '@/constant/talentChannels.json'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import OptionMenu from '@/component/profile/option-menu'
-import { findProfileByQname } from '@/util/sort'
+import { findProfileByQname } from '@/functions/sort'
 import Profile from '@/component/profile/profile'
 import Videos from '@/component/videos/videos'
 
