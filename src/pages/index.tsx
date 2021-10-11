@@ -1,6 +1,7 @@
 import HomeStyle from '@/styles/home.module.css'
 import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
+import Logo from '@/component/schedule/logo'
 import Schedule from '@/component/schedule/schedule'
 import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
@@ -14,6 +15,7 @@ export default function Home({ personaData, streamVideoData }:
   return (
     <div className={HomeStyle.wrapper} style={{ backgroundColor: theme.background }}>
       <Menu profiles={personaData} />
+      <Logo />
       <Schedule videos={streamVideoData} profiles={personaData} />
     </div>
   )
