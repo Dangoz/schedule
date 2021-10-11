@@ -1,14 +1,16 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Tag } from 'antd'
+import { TagOutlined } from '@ant-design/icons'
 import { SettingTwoTone } from '@ant-design/icons'
 import Frequency from '@/functions/frequency'
 import TagStyle from '@/styles/videos/tag.module.css'
 import { colorPresets } from '@/constant/tags'
-import { generateColors } from './helpers'
+import { generateColors } from '@/functions/helpers'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
   { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>>, isMobile: boolean }) => {
-
+  const theme = useThemeContext();
   const [inuseCount, setInuseCount] = useState(20);
   const [noMoreTags, setNoMoreTags] = useState(false);
 
@@ -41,14 +43,18 @@ const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
 
         {inuse.map((tag, index) => (
           <Tag key={tag} color={selectedTags.indexOf(tag) !== -1 ? `${colors[index]}-inverse` : `${colors[index]}`}
-            onClick={tagToggle} className={TagStyle.tag}>{tag}</Tag>
+            onClick={tagToggle} className={TagStyle.tag}
+          // icon={<TagOutlined twoToneColor={colors[index]} />}
+          // style={{ borderColor: theme.textLow }}
+          >
+            {tag}</Tag>
         ))}
 
         <Tag color={'default'} className={TagStyle.tag} onClick={moreTags}
           icon={<SettingTwoTone spin={!noMoreTags} />}>{noMoreTags ? 'no more - click to reset' : 'more'}</Tag>
 
       </div>
-    </div>
+    </div >
   )
 }
 

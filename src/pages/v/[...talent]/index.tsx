@@ -10,9 +10,11 @@ import OptionMenu from '@/component/profile/option-menu'
 import { findProfileByQname } from '@/functions/sort'
 import Profile from '@/component/profile/profile'
 import Videos from '@/component/videos/videos'
+import { useThemeContext } from '@/state/themes/theme.context'
 
 const Talent = ({ personaData, videosData }:
   { personaData: IProfile[], videosData: ICompleteVideo[] }) => {
+  const theme = useThemeContext();
   const router = useRouter();
   const [videos, setVideos] = useState(videosData);
   const [talent, setTalent] = useState(findProfileByQname(personaData, router.query.talent[0]));
@@ -26,7 +28,8 @@ const Talent = ({ personaData, videosData }:
   }, [personaData])
 
   return (
-    <div> <Menu profiles={personaData} />
+    <div style={{ height: '100%', backgroundColor: router.query.talent.length === 1 ? '' : theme.background, minHeight: '100vh' }}>
+      <Menu profiles={personaData} />
 
       <OptionMenu talent={talent} />
 
