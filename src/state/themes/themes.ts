@@ -5,13 +5,16 @@ export const darkTheme: ITheme = {
   foreground: "#262a2f",
   // background: "#262a2f",
   // foreground: "#171b1f",
-  // background: '#A0E7E5',
-  // foreground: '#FFAEBC',
   textLow: "#adadad",
   textHigh: "#ffffff",
-  emission: "#ffffff"
+  emission: "#ffffff",
 }
 
-export const bluTheme = {
-
+export const springTheme: ITheme = {
+  // background: '#A0E7E5',
+  background: '#355070',
+  foreground: '#FFAEBC',
+  textLow: "#adadad",
+  textHigh: "#ffffff",
+  emission: "#FFAEBC",
 }
