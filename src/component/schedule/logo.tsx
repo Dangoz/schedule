@@ -5,13 +5,15 @@ import { useThemeContext } from '@/state/themes/theme.context'
 const Logo = () => {
   const theme = useThemeContext();
   const [width, setWidth] = useState<number>(0);
+  const [height, setHeight] = useState<number>(0);
 
   useEffect(() => {
     setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
   }, [])
 
   useEffect(() => {
-    if (width) return require('./nextparticle')();
+    if (width && height) return require('./nextparticle')();
   }, [width])
 
   return (
@@ -28,7 +30,7 @@ const Logo = () => {
           data-mouse-force="5"
 
           data-width={`${width}`}
-          data-height="800"
+          data-height={`${height}`}
 
           data-min-width="85%"
           data-min-height="85%"
