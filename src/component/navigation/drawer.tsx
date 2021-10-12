@@ -7,14 +7,14 @@ import { ScheduleOutlined, HomeOutlined } from '@ant-design/icons'
 import IProfile from '@/interfaces/profile.interface'
 import { g1order } from '@/constant/drawerOrder'
 import { sortTalentsByGeneration } from '@/functions/sort'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const DrawerMenu = ({ visible, setVisible, profiles }: {
   visible: boolean,
   setVisible: React.Dispatch<React.SetStateAction<boolean>>,
   profiles: IProfile[]
 }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const { SubMenu } = Menu;
   const [g1talents] = useState(sortTalentsByGeneration(profiles, g1order, 'generation 1'));
 

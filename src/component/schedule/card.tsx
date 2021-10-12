@@ -6,10 +6,10 @@ import { useState, useEffect } from 'react'
 import { findProfileByVideo, sortTalentsByGeneration } from '@/functions/sort'
 import { Statistic, Divider } from 'antd'
 import { PlayCircleTwoTone, ClockCircleOutlined, FieldTimeOutlined, ClockCircleTwoTone, YoutubeOutlined } from '@ant-design/icons'
-import { useThemeContext } from '@/state/themes/theme.context'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import calendar from 'dayjs/plugin/calendar'
+import useTheme from '@/functions/useTheme'
 dayjs.extend(relativeTime)
 dayjs.extend(calendar)
 
@@ -17,7 +17,7 @@ const { Countdown } = Statistic;
 const countdownLimit: number = 12;
 
 const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [timestamp] = useState(dayjs(video.availableAt));
   const [talent, setTalent] = useState(null);
 
@@ -37,7 +37,7 @@ const Card = ({ video, profiles }: { video: IStreamVideo, profiles: IProfile[] }
 
     // find video's corresponding profile, attach href to profile using sortTalentsByGeneration
     const profile = findProfileByVideo(profiles, video);
-    console.log('VIDEO:', video, 'PROFILE: ', profile)
+    // console.log('VIDEO:', video, 'PROFILE: ', profile)
     setTalent(sortTalentsByGeneration([profile], [profile.name], profile.suborg)[0]);
   }, [])
 

@@ -1,9 +1,9 @@
+import useTheme from '@/functions/useTheme';
 import LogoStyle from '@/styles/schedule/logo.module.css'
 import { useEffect, useState } from 'react'
-import { useThemeContext } from '@/state/themes/theme.context'
 
 const Logo = () => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [width, setWidth] = useState<number>(0);
   const [height, setHeight] = useState<number>(0);
 

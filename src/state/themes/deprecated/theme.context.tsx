@@ -3,17 +3,14 @@
  */
 
 import { useContext, createContext } from 'react'
-import ITheme from './theme.interface'
-import { darkTheme, springTheme } from './themes'
+import ITheme from '../theme.interface'
+import themes from '../themes'
 export const themeContext = createContext(null);
 
 export const ThemeWrapper = ({ children }) => {
-  const themes: { dark: ITheme, spring: ITheme } = {
-    dark: darkTheme, spring: springTheme
-  };
 
   return (
-    <themeContext.Provider value={themes.dark}>
+    <themeContext.Provider value={themes[0]}>
       {children}
     </themeContext.Provider>
   )

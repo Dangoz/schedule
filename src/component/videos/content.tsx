@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react'
 import { Spin, Row, Col } from 'antd'
 import ContentStyle from '@/styles/videos/content.module.css'
 import Card from './card'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const Content = ({ videos, isLoading }:
   { videos: ICompleteVideo[], isLoading: boolean }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [content, setContent] = useState(videos);
   const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
 

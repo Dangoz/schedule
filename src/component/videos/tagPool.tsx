@@ -6,11 +6,11 @@ import Frequency from '@/functions/frequency'
 import TagStyle from '@/styles/videos/tag.module.css'
 import { colorPresets } from '@/constant/tags'
 import { generateColors } from '@/functions/helpers'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
   { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>>, isMobile: boolean }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [inuseCount, setInuseCount] = useState(20);
   const [noMoreTags, setNoMoreTags] = useState(false);
 

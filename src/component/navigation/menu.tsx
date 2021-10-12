@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
-import { MenuUnfoldOutlined, MenuFoldOutlined, BgColorsOutlined } from '@ant-design/icons'
-import { Layout } from 'antd'
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import MenuStyle from '@/styles/navigation/menu.module.css'
 import ToTop from './toTop'
 import DrawerMenu from './drawer'
 import IProfile from '@/interfaces/profile.interface'
-import { useThemeContext } from '@/state/themes/theme.context'
+import ThemeBucket from './themeBucket'
+import useTheme from '@/functions/useTheme'
 
 const Menu = ({ profiles }: { profiles: IProfile[] }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
+
   const [visible, setVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -40,7 +41,7 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
         </div>
 
         <div className={MenuStyle.placeholder}>
-          {/* <BgColorsOutlined className={MenuStyle.theme} /> */}
+          <ThemeBucket />
         </div>
 
       </div>

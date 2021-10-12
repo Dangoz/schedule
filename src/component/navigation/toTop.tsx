@@ -2,10 +2,10 @@ import ToTopStyle from '@/styles/navigation/toTop.module.css'
 import { useState, useEffect } from 'react'
 import { BackTop, Button } from 'antd'
 import { RocketFilled, RocketOutlined, RocketTwoTone } from '@ant-design/icons'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const ToTop = () => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [mouseInside, setMouseInside] = useState(false);
 
   useEffect(() => {

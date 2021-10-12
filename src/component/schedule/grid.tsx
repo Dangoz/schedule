@@ -6,13 +6,13 @@ import Card from './card'
 import IProfile from '@/interfaces/profile.interface'
 import dayjs from 'dayjs'
 import dayOfYear from 'dayjs/plugin/dayOfYear'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 dayjs.extend(dayOfYear);
 
 const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
   { criteria: dayjs.Dayjs, videos: IStreamVideo[], isToday: boolean, isAfterwards: boolean, profiles: IProfile[] }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
   const [title, setTitle] = useState('MM / DD');
   const [content, setContent] = useState(null);
@@ -29,7 +29,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
           else if (isAfterwards) { return (+timestamp >= +criteria || sameDay) }
           else { return sameDay };
         })
-        console.log('filtered!', JSON.stringify(result, null, 2));
+        // console.log('filtered!', JSON.stringify(result, null, 2));
 
         result = result.sort((a, b) => {
           return +dayjs(a.availableAt) - +dayjs(b.availableAt);
@@ -50,7 +50,7 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
   }, []);
 
   useEffect(() => {
-    console.log('content!!!', content);
+    // console.log('content!!!', content);
   }, [content])
 
   return (
