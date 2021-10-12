@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
-import { Layout } from 'antd'
 import MenuStyle from '@/styles/navigation/menu.module.css'
 import ToTop from './toTop'
 import DrawerMenu from './drawer'
 import IProfile from '@/interfaces/profile.interface'
-const { Header, Sider, Content, Footer } = Layout;
-import { useThemeContext } from '@/state/themes/theme.context'
+import ThemeBucket from './themeBucket'
+import useTheme from '@/functions/useTheme'
 
 const Menu = ({ profiles }: { profiles: IProfile[] }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
+
   const [visible, setVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -27,7 +27,7 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
   return (
     <>
       <DrawerMenu visible={visible} setVisible={setVisible} profiles={profiles} />
-      {/* <Layout> */}
+
       <div className={MenuStyle.menu} style={{ opacity: scrolled ? 0.8 : 1, backgroundColor: theme.foreground }}>
 
         <div className={MenuStyle.drawerBlock} >
@@ -41,11 +41,10 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
         </div>
 
         <div className={MenuStyle.placeholder}>
-
+          <ThemeBucket />
         </div>
 
       </div>
-      {/* </Layout> */}
 
       <ToTop />
     </>

@@ -1,0 +1,23 @@
+.theme {
+  font-size: 33.5px;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+}
+.themeWrapper {
+  cursor: pointer;
+  display: flex;
+  margin: 3px;
+  border: 2px dashed white;
+}
+.themeWrapper:hover {
+  border: 2px solid white;
+}
+.left {
+  width: 30px;
+  height: 20px;
+}
+.right {
+  width: 30px;
+  height: 20px;
+}

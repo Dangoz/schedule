@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import HomeStyle from '@/styles/home.module.css'
 import api from '@/config/axios'
 import Menu from '@/component/navigation/menu'
@@ -6,16 +7,29 @@ import Schedule from '@/component/schedule/schedule'
 import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
 import IStreamVideo from '@/interfaces/stream-video.interface'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {
-  const theme = useThemeContext();
+  const theme = useTheme();
+
+  const [instances, setInstances] = useState<boolean[]>([true]);
+
+  // re-instantiate logo-particles
+  useEffect(() => {
+    instances.length === 2
+      ? setInstances([true])
+      : setInstances([false, true])
+  }, [theme])
 
   return (
     <div className={HomeStyle.wrapper} style={{ backgroundColor: theme.background }}>
       <Menu profiles={personaData} />
-      <Logo />
+
+      {instances.map((i, index) => (
+        i && <div key={index}><Logo /></div>
+      ))}
+
       <Schedule videos={streamVideoData} profiles={personaData} />
     </div>
   )

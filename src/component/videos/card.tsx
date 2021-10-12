@@ -6,10 +6,10 @@ import IProfile from '@/interfaces/profile.interface'
 import CardStyle from '@/styles/videos/card.module.css'
 import dayjs from 'dayjs'
 import { parseDuration } from '@/functions/helpers'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const Card = ({ video }: { video: ICompleteVideo }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const [timestamp] = useState(dayjs(video.availableAt));
 
   return (<>

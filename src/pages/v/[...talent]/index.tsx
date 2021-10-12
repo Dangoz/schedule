@@ -6,15 +6,15 @@ import api from '@/config/axios'
 import IProfile from '@/interfaces/profile.interface'
 import talentChannels from '@/constant/talentChannels.json'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
-import OptionMenu from '@/component/profile/option-menu'
+import OptionMenu from '@/component/profile/optionMenu'
 import { findProfileByQname } from '@/functions/sort'
 import Profile from '@/component/profile/profile'
 import Videos from '@/component/videos/videos'
-import { useThemeContext } from '@/state/themes/theme.context'
+import useTheme from '@/functions/useTheme'
 
 const Talent = ({ personaData, videosData }:
   { personaData: IProfile[], videosData: ICompleteVideo[] }) => {
-  const theme = useThemeContext();
+  const theme = useTheme();
   const router = useRouter();
   const [videos, setVideos] = useState(videosData);
   const [talent, setTalent] = useState(findProfileByQname(personaData, router.query.talent[0]));
