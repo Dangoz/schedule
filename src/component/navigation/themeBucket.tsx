@@ -5,13 +5,17 @@ import themes from '@/state/themes/themes'
 import useTheme from '@/functions/useTheme'
 import themeStore from '@/state/themes/themeStore'
 import { switchTheme } from '@/state/themes/actions'
+import { useRouter } from 'next/router'
 
 const ThemeBucket = () => {
   const theme = useTheme();
+  const router = useRouter();
 
   const select = (name: string) => {
     themeStore.dispatch(switchTheme(name));
     localStorage.setItem('theme', name);
+
+    if (JSON.stringify(router.query) === '{}') router.reload();
   }
 
   const menu = (
