@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Drawer, Menu } from 'antd'
 import DrawerStyle from '@/styles/navigation/drawer.module.css'
 import '@/styles/navigation/drawer.module.css'
-import { ScheduleOutlined, HomeOutlined } from '@ant-design/icons'
+import { ScheduleOutlined, HomeOutlined, FolderOpenOutlined } from '@ant-design/icons'
 import IProfile from '@/interfaces/profile.interface'
 import { g1order } from '@/constant/drawerOrder'
 import { sortTalentsByGeneration } from '@/functions/sort'
@@ -39,6 +39,10 @@ const DrawerMenu = ({ visible, setVisible, profiles }: {
 
             <Menu.Item key='0' icon={<ScheduleOutlined />} className={DrawerStyle.item}>
               <Link href='/'><div className={DrawerStyle.text}>Schedule</div></Link>
+            </Menu.Item>
+
+            <Menu.Item key='1' icon={<FolderOpenOutlined />} className={DrawerStyle.item}>
+              <Link href='/archive'><div className={DrawerStyle.text}>Archive</div></Link>
             </Menu.Item>
 
             {/* <Menu.Divider /> */}
