@@ -3,14 +3,17 @@ import Menu from '@/component/navigation/menu'
 import { GetStaticProps } from 'next'
 import IProfile from '@/interfaces/profile.interface'
 import api from '@/config/axios'
+import Content from '@/component/videos/content'
+import ICompleteVideo from '@/interfaces/complete-video.interface'
 
-const Archive = ({ personaData }: {
-  personaData: IProfile[]
+const Archive = ({ personaData, videosData }: {
+  personaData: IProfile[], videosData: ICompleteVideo[]
 }) => {
   return (
     <div>
       <Menu profiles={personaData} />
       Archive page~~
+      <Content videos={videosData} isLoading={false} />
     </div>
   )
 }
@@ -20,16 +23,18 @@ export default Archive
 export const getStaticProps: GetStaticProps = async ({ }) => {
 
   // get profiles
-  const response = await api.get('/persona');
+  const responsePersona = await api.get('/persona');
   console.log('Fetched <Profile> ^___^ Schedule Page');
-  const personaData: IProfile[] = response.data.profiles;
+  const personaData: IProfile[] = responsePersona.data.profiles;
 
   // get all videos
+  const responseVideos = await api.get(`/video/complete`);
+  const videosData: ICompleteVideo[] = responseVideos.data.videos;
 
   return {
     props: {
       personaData,
-      // streamVideoData
+      videosData
     },
     revalidate: 60
   }
