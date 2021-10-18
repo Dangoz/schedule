@@ -15,7 +15,7 @@ const ThemeBucket = () => {
     themeStore.dispatch(switchTheme(name));
     localStorage.setItem('theme', name);
 
-    if (JSON.stringify(router.query) === '{}') router.reload();
+    if (router.pathname === '/') router.reload();
   }
 
   const menu = (

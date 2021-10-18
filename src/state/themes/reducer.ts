@@ -1,7 +1,6 @@
 import { AnyAction } from 'redux'
 import ITheme from './theme.interface'
 import themes from './themes'
-import themeStore from './themeStore'
 
 const initialState: {
   theme: ITheme,

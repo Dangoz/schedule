@@ -8,8 +8,8 @@ import Page from './page'
 import { filterVideosByTags, getTagsFromVideos, purifyTags } from '@/functions/helpers'
 
 const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
-  const [isMobile, setIsMobile] = useState(null);
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [isMobile, setIsMobile] = useState<boolean>(null);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [displayedVideos, setDisplayedVideos] = useState(videos);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -34,7 +34,7 @@ const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
 
       <div className={VideoStyle.tag}>
         <TagPool tagList={purifyTags(getTagsFromVideos(videos))}
-          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} isMobile={isMobile} />
+          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} />
       </div>
 
       <div className={VideoStyle.content}>

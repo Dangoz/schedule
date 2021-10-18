@@ -8,8 +8,8 @@ import { colorPresets } from '@/constant/tags'
 import { generateColors } from '@/functions/helpers'
 import useTheme from '@/functions/useTheme'
 
-const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
-  { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>>, isMobile: boolean }) => {
+const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage }:
+  { tagList: string[], selectedTags: string[], setSelectedTags: Dispatch<SetStateAction<string[]>>, setPage: Dispatch<SetStateAction<number>> }) => {
   const theme = useTheme();
   const [inuseCount, setInuseCount] = useState(20);
   const [noMoreTags, setNoMoreTags] = useState(false);
@@ -43,11 +43,9 @@ const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage, isMobile }:
 
         {inuse.map((tag, index) => (
           <Tag key={tag} color={selectedTags.indexOf(tag) !== -1 ? `${colors[index]}-inverse` : `${colors[index]}`}
-            onClick={tagToggle} className={TagStyle.tag}
-          // icon={<TagOutlined twoToneColor={colors[index]} />}
-          // style={{ borderColor: theme.textLow }}
-          >
-            {tag}</Tag>
+            onClick={tagToggle} className={TagStyle.tag} icon={<TagOutlined />}>
+            {tag}
+          </Tag>
         ))}
 
         <Tag color={'default'} className={TagStyle.tag} onClick={moreTags}
