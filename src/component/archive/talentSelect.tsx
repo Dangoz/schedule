@@ -17,8 +17,8 @@ const TalentSelect = ({ personaData, talent, setTalent, setPage }
 
   return (
     <div className={Style.wrapper}>
-      {g1talents.map(t => (
-        <div className={Style.talentBox}
+      {g1talents.map((t, index) => (
+        <div className={Style.talentBox} key={index}
           onClick={e => select(t.href)}
           style={{
             backgroundImage: `url(${t.photo})`,

@@ -39,9 +39,10 @@ export default function Home({ personaData, streamVideoData }:
               backgroundColor: onButton ? '#ffffff' : theme.foreground,
               borderColor: onButton ? '#ffffff' : theme.background,
               color: onButton ? 'black' : '#ffffff',
-              width: '225px', height: '50px', borderRadius: '25px'
+              width: '225px', height: '50px', borderRadius: '25px',
+              fontFamily: "'Bodoni Moda', serif"
             }}>
-            Archive
+            ARCHIVE
           </Button>
         </Link>
       </div>
