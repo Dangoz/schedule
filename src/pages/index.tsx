@@ -8,11 +8,13 @@ import { GetStaticProps } from "next"
 import IProfile from '@/interfaces/profile.interface'
 import IStreamVideo from '@/interfaces/stream-video.interface'
 import useTheme from '@/functions/useTheme'
+import { Button } from 'antd'
+import Link from 'next/link'
 
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {
   const theme = useTheme();
-
+  const [onButton, setOnButton] = useState<boolean>(false);
   const [instances, setInstances] = useState<boolean[]>([true]);
 
   // re-instantiate logo-particles
@@ -29,6 +31,20 @@ export default function Home({ personaData, streamVideoData }:
       {instances.map((i, index) => (
         i && <div key={index}><Logo /></div>
       ))}
+
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '10px' }}>
+        <Link href='/archive'>
+          <Button type={'primary'} onMouseEnter={() => setOnButton(true)} onMouseLeave={() => setOnButton(false)}
+            style={{
+              backgroundColor: onButton ? '#ffffff' : theme.foreground,
+              borderColor: onButton ? '#ffffff' : theme.background,
+              color: onButton ? 'black' : '#ffffff',
+              width: '225px', height: '50px', borderRadius: '25px'
+            }}>
+            Archive
+          </Button>
+        </Link>
+      </div>
 
       <Schedule videos={streamVideoData} profiles={personaData} />
     </div>

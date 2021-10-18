@@ -1,6 +1,6 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Tag } from 'antd'
-import { TagOutlined } from '@ant-design/icons'
+import { StarFilled, StarOutlined, TagOutlined } from '@ant-design/icons'
 import { SettingTwoTone } from '@ant-design/icons'
 import Frequency from '@/functions/frequency'
 import TagStyle from '@/styles/videos/tag.module.css'
@@ -43,7 +43,7 @@ const TagPool = ({ tagList, selectedTags, setSelectedTags, setPage }:
 
         {inuse.map((tag, index) => (
           <Tag key={tag} color={selectedTags.indexOf(tag) !== -1 ? `${colors[index]}-inverse` : `${colors[index]}`}
-            onClick={tagToggle} className={TagStyle.tag} icon={<TagOutlined />}>
+            onClick={tagToggle} className={TagStyle.tag} icon={[1, 20, 38].indexOf(index) !== -1 ? <StarFilled /> : <TagOutlined />}>
             {tag}
           </Tag>
         ))}
