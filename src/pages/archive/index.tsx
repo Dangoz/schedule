@@ -3,17 +3,21 @@ import Menu from '@/component/navigation/menu'
 import { GetStaticProps } from 'next'
 import IProfile from '@/interfaces/profile.interface'
 import api from '@/config/axios'
-import Content from '@/component/videos/content'
+import Context from '@/component/archive/context'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
+import useTheme from '@/functions/useTheme'
 
 const Archive = ({ personaData, videosData }: {
   personaData: IProfile[], videosData: ICompleteVideo[]
 }) => {
+  const theme = useTheme();
+
+
+
   return (
-    <div>
+    <div style={{ height: '100%', backgroundColor: theme.background, minHeight: '100vh' }}>
       <Menu profiles={personaData} />
-      Archive page~~
-      <Content videos={videosData} isLoading={false} />
+      <Context personaData={personaData} videosData={videosData} />
     </div>
   )
 }

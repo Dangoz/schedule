@@ -1,5 +1,6 @@
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import { blockedTagList, blockedKeyword } from '@/constant/tags'
+import talentChannels from '@/constant/talentChannels.json'
 import Frequency from '@/functions/frequency'
 
 // filter videos by a list of tags
@@ -9,6 +10,14 @@ export const filterVideosByTags = (videos: ICompleteVideo[], tags: string[]): IC
   const result = videos.filter(video => {
     return tags.filter(tag => video.tags.indexOf(tag) !== -1).length === tags.length;
   })
+  return result;
+}
+
+export const filterVideosByTalent = (videos: ICompleteVideo[], talent: string): ICompleteVideo[] => {
+  if (!talent) return videos;
+
+  const tc = { ...talentChannels.g1, ...talentChannels.g2 };
+  const result = videos.filter(video => tc[talent].indexOf(video.channelId) !== -1);
   return result;
 }
 

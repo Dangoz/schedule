@@ -1,0 +1,34 @@
+.wrapper {
+  padding: 0px 1%;
+  padding-top: 36px;
+  padding-bottom: 10px;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.talentBox {
+  cursor: pointer;
+  width: 75px;
+  height: 100px;
+  background-color: red;
+
+  filter: saturate(0.8);
+
+  /* box-shadow: 1px 1px 4px #ffffff; */
+
+  margin: 5px 10px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+}
+.talentBox:hover {
+  transform: scale(1.3);
+
+}
