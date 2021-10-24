@@ -9,8 +9,8 @@ import TagPool from '../videos/tagPool'
 import Page from './page'
 import { filterVideosByTags, filterVideosByTalent, getTagsFromVideos, purifyTags } from '@/functions/helpers'
 
-const Context = ({ personaData, videosData }: { personaData: IProfile[], videosData: ICompleteVideo[] }) => {
-  const videos = videosData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
+const Context = ({ personaData, videoData }: { personaData: IProfile[], videoData: ICompleteVideo[] }) => {
+  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [talent, setTalent] = useState("");
   const [displayedVideos, setDisplayedVideos] = useState(videos);

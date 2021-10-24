@@ -1,3 +1,14 @@
 .wrapper {
   height: 100%;
 }
+
+.archiveBox {
+  display: flex;
+  justify-content: center;
+}
+.archiveButton {
+  font-family: 'Bodoni Moda', serif;
+  width: 225px;
+  height: 50px;
+  border-radius: 25px;
+}

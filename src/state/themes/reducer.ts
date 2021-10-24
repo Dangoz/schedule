@@ -21,6 +21,7 @@ const reducer = (state = initialState, { type, payload }: AnyAction): {
       theme: newTheme
     }
   }
+  return state;
 }
 
 export default reducer;

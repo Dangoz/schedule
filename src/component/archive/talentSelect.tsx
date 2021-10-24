@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import IProfile from '@/interfaces/profile.interface'
 import { Dispatch, SetStateAction } from 'react'
 import Style from '@/styles/archive/talentSelect.module.css'
@@ -8,6 +8,11 @@ import { g1order } from '@/constant/drawerOrder'
 const TalentSelect = ({ personaData, talent, setTalent, setPage }
   : { personaData: IProfile[], talent: string, setTalent: Dispatch<SetStateAction<string>>, setPage: Dispatch<SetStateAction<number>> }) => {
   const g1talents = sortTalentsByGeneration(personaData, g1order, 'generation 1');
+  const [isMobile, setIsMobile] = useState<boolean>(null);
+
+  useEffect(() => {
+    setIsMobile(require('@/config/isMobile')(navigator.userAgent));
+  }, [])
 
   const select = (href: string) => {
     setPage(1);
@@ -18,7 +23,7 @@ const TalentSelect = ({ personaData, talent, setTalent, setPage }
   return (
     <div className={Style.wrapper}>
       {g1talents.map((t, index) => (
-        <div className={Style.talentBox} key={index}
+        <div key={index} className={Style.talentBox + " " + `${!isMobile && Style.hoverBox}`}
           onClick={e => select(t.href)}
           style={{
             backgroundImage: `url(${t.photo})`,

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import ProfileStyle from '@/styles/profile/profile.module.css'
 
 const Profile = ({ talent }: { talent: IProfile }) => {
-  const [isMobile, setIsMobile] = useState(null);
+  const [isMobile, setIsMobile] = useState<boolean>(null);
 
   useEffect(() => {
     setIsMobile(require('@/config/isMobile')(navigator.userAgent));

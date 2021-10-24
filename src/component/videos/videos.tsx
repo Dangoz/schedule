@@ -7,7 +7,8 @@ import Content from './content'
 import Page from './page'
 import { filterVideosByTags, getTagsFromVideos, purifyTags } from '@/functions/helpers'
 
-const Videos = ({ videos }: { videos: ICompleteVideo[] }) => {
+const Videos = ({ videoData }: { videoData: ICompleteVideo[] }) => {
+  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
   const [isMobile, setIsMobile] = useState<boolean>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [displayedVideos, setDisplayedVideos] = useState(videos);

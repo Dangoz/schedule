@@ -14,7 +14,7 @@ import Link from 'next/link'
 export default function Home({ personaData, streamVideoData }:
   { personaData: IProfile[], streamVideoData: IStreamVideo[] }) {
   const theme = useTheme();
-  const [onButton, setOnButton] = useState<boolean>(false);
+  const [hover, setHover] = useState<boolean>(false);
   const [instances, setInstances] = useState<boolean[]>([true]);
 
   // re-instantiate logo-particles
@@ -32,15 +32,14 @@ export default function Home({ personaData, streamVideoData }:
         i && <div key={index}><Logo /></div>
       ))}
 
-      <div style={{ display: 'flex', justifyContent: 'center', margin: '10px' }}>
+      <div className={HomeStyle.archiveBox} style={{ margin: '10px' }}>
         <Link href='/archive'>
-          <Button type={'primary'} onMouseEnter={() => setOnButton(true)} onMouseLeave={() => setOnButton(false)}
+          <Button type={'primary'} className={HomeStyle.archiveButton}
+            onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
             style={{
-              backgroundColor: onButton ? '#ffffff' : theme.foreground,
-              borderColor: onButton ? '#ffffff' : theme.background,
-              color: onButton ? 'black' : '#ffffff',
-              width: '225px', height: '50px', borderRadius: '25px',
-              fontFamily: "'Bodoni Moda', serif"
+              backgroundColor: hover ? '#ffffff' : theme.foreground,
+              borderColor: hover ? '#ffffff' : theme.background,
+              color: hover ? 'black' : '#ffffff'
             }}>
             ARCHIVE
           </Button>

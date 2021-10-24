@@ -7,17 +7,15 @@ import Context from '@/component/archive/context'
 import ICompleteVideo from '@/interfaces/complete-video.interface'
 import useTheme from '@/functions/useTheme'
 
-const Archive = ({ personaData, videosData }: {
-  personaData: IProfile[], videosData: ICompleteVideo[]
+const Archive = ({ personaData, videoData }: {
+  personaData: IProfile[], videoData: ICompleteVideo[]
 }) => {
   const theme = useTheme();
-
-
 
   return (
     <div style={{ height: '100%', backgroundColor: theme.background, minHeight: '100vh' }}>
       <Menu profiles={personaData} />
-      <Context personaData={personaData} videosData={videosData} />
+      <Context personaData={personaData} videoData={videoData} />
     </div>
   )
 }
@@ -33,12 +31,12 @@ export const getStaticProps: GetStaticProps = async ({ }) => {
 
   // get all videos
   const responseVideos = await api.get(`/video/complete`);
-  const videosData: ICompleteVideo[] = responseVideos.data.videos;
+  const videoData: ICompleteVideo[] = responseVideos.data.videos;
 
   return {
     props: {
       personaData,
-      videosData
+      videoData
     },
     revalidate: 60
   }
