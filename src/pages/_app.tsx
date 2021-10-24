@@ -15,17 +15,19 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     let theme = localStorage.getItem('theme')
     if (themeNames.indexOf(theme) === -1) {
-      theme = 'dark';
-      localStorage.setItem('theme', 'dark');
+      theme = 'dark'
+      localStorage.setItem('theme', 'dark')
     }
-    if (theme && theme !== 'dark') themeStore.dispatch(switchTheme(theme));
+    if (theme && theme !== 'dark') themeStore.dispatch(switchTheme(theme))
   }, [])
 
-  return (<>
-    <isMobileContext.Provider value={isMobile}>
-      <Component {...pageProps} />
-    </isMobileContext.Provider>
-  </>)
+  return (
+    <>
+      <isMobileContext.Provider value={isMobile}>
+        <Component {...pageProps} />
+      </isMobileContext.Provider>
+    </>
+  )
 }
 
 export default MyApp

@@ -1,10 +1,9 @@
 import { createStore } from 'redux'
-import { switchTheme } from './actions';
+import { switchTheme } from './actions'
 import reducer from './reducer'
 
-const themeStore = createStore(reducer);
+const themeStore = createStore(reducer)
 
-themeStore.dispatch(switchTheme('dark'));
+themeStore.dispatch(switchTheme('dark'))
 
-export default themeStore;
-
+export default themeStore

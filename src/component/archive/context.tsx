@@ -9,39 +9,42 @@ import TagPool from '../videos/tagPool'
 import Page from './page'
 import { filterVideosByTags, filterVideosByTalent, getTagsFromVideos, purifyTags } from '@/functions/helpers'
 
-const Context = ({ personaData, videoData }: { personaData: IProfile[], videoData: ICompleteVideo[] }) => {
-  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [talent, setTalent] = useState("");
-  const [displayedVideos, setDisplayedVideos] = useState(videos);
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const pagesize = 20;
+const Context = ({ personaData, videoData }: { personaData: IProfile[]; videoData: ICompleteVideo[] }) => {
+  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt))
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [talent, setTalent] = useState('')
+  const [displayedVideos, setDisplayedVideos] = useState(videos)
+  const [isLoading, setIsLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const pagesize = 20
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     setTimeout(() => {
+      let newVideos = filterVideosByTalent(videos, talent)
+      newVideos = filterVideosByTags(newVideos, selectedTags)
 
-      let newVideos = filterVideosByTalent(videos, talent);
-      newVideos = filterVideosByTags(newVideos, selectedTags);
+      setDisplayedVideos(newVideos)
+      setIsLoading(false)
+    }, 300)
+  }, [selectedTags, talent])
 
-      setDisplayedVideos(newVideos);
-      setIsLoading(false);
-    }, 300);
-  }, [selectedTags, talent]);
+  return (
+    <>
+      <TalentSelect personaData={personaData} talent={talent} setTalent={setTalent} setPage={setPage} />
 
-  return (<>
+      <TagPool
+        tagList={purifyTags(getTagsFromVideos(videos))}
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
+        setPage={setPage}
+      />
 
-    <TalentSelect personaData={personaData} talent={talent} setTalent={setTalent} setPage={setPage} />
+      <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)} isLoading={isLoading} />
 
-    <TagPool tagList={purifyTags(getTagsFromVideos(videos))}
-      selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} />
-
-    <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)}
-      isLoading={isLoading} />
-
-    <Page />
-  </>)
+      <Page />
+    </>
+  )
 }
 
 export default Context

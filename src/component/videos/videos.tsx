@@ -9,44 +9,46 @@ import { filterVideosByTags, getTagsFromVideos, purifyTags } from '@/functions/h
 import { useIsMobileContext } from '@/state/isMobile/isMobile.context'
 
 const Videos = ({ videoData }: { videoData: ICompleteVideo[] }) => {
-  const isMobile = useIsMobileContext();
-  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [displayedVideos, setDisplayedVideos] = useState(videos);
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  const pagesize = 20;
+  const isMobile = useIsMobileContext()
+  const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt))
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [displayedVideos, setDisplayedVideos] = useState(videos)
+  const [isLoading, setIsLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  const pagesize = 20
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     setTimeout(() => {
-      let newVideos = filterVideosByTags(videos, selectedTags);
-      newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
-      setDisplayedVideos(newVideos);
-      setIsLoading(false);
-    }, 300);
-  }, [selectedTags]);
+      let newVideos = filterVideosByTags(videos, selectedTags)
+      newVideos = newVideos.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt))
+      setDisplayedVideos(newVideos)
+      setIsLoading(false)
+    }, 300)
+  }, [selectedTags])
 
-  return (<>
-    <div className={VideoStyle.wrapper} style={{ paddingTop: isMobile ? '10px' : '40px' }}>
+  return (
+    <>
+      <div className={VideoStyle.wrapper} style={{ paddingTop: isMobile ? '10px' : '40px' }}>
+        <div className={VideoStyle.tag}>
+          <TagPool
+            tagList={purifyTags(getTagsFromVideos(videos))}
+            selectedTags={selectedTags}
+            setSelectedTags={setSelectedTags}
+            setPage={setPage}
+          />
+        </div>
 
-      <div className={VideoStyle.tag}>
-        <TagPool tagList={purifyTags(getTagsFromVideos(videos))}
-          selectedTags={selectedTags} setSelectedTags={setSelectedTags} setPage={setPage} />
+        <div className={VideoStyle.content}>
+          <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)} isLoading={isLoading} />
+        </div>
+
+        <div className={VideoStyle.pagination}>
+          <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page} isMobile={isMobile} />
+        </div>
       </div>
-
-      <div className={VideoStyle.content}>
-        <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)}
-          isLoading={isLoading} />
-      </div>
-
-
-      <div className={VideoStyle.pagination}>
-        <Page count={displayedVideos.length} pagesize={pagesize} setPage={setPage} page={page} isMobile={isMobile} />
-      </div>
-
-    </div>
-  </>)
+    </>
+  )
 }
 
 export default Videos
