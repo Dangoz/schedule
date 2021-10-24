@@ -4,15 +4,12 @@ import { Dispatch, SetStateAction } from 'react'
 import Style from '@/styles/archive/talentSelect.module.css'
 import { sortTalentsByGeneration } from '@/functions/sort'
 import { g1order } from '@/constant/drawerOrder'
+import { useIsMobileContext } from '@/state/isMobile/isMobile.context'
 
 const TalentSelect = ({ personaData, talent, setTalent, setPage }
   : { personaData: IProfile[], talent: string, setTalent: Dispatch<SetStateAction<string>>, setPage: Dispatch<SetStateAction<number>> }) => {
+  const isMobile = useIsMobileContext();
   const g1talents = sortTalentsByGeneration(personaData, g1order, 'generation 1');
-  const [isMobile, setIsMobile] = useState<boolean>(null);
-
-  useEffect(() => {
-    setIsMobile(require('@/config/isMobile')(navigator.userAgent));
-  }, [])
 
   const select = (href: string) => {
     setPage(1);

@@ -5,8 +5,10 @@ import { Button, Row, Col } from 'antd'
 import { SolutionOutlined, VideoCameraOutlined } from '@ant-design/icons'
 import OptionMenuStyle from '@/styles/profile/option-menu.module.css'
 import IProfile from '@/interfaces/profile.interface'
+import { useIsMobileContext } from '@/state/isMobile/isMobile.context'
 
 const OptionMenu = ({ talent }: { talent: IProfile }) => {
+  const isMobile = useIsMobileContext();
   const pbutton = useRef(null);
   const vbutton = useRef(null);
   const photoRef = useRef(null);
@@ -16,7 +18,7 @@ const OptionMenu = ({ talent }: { talent: IProfile }) => {
   const query = router.query.talent;
 
   useEffect(() => {
-    !require('@/config/isMobile')(navigator.userAgent) &&
+    !isMobile &&
       window.addEventListener('mousemove', mousemove);
   }, [])
 

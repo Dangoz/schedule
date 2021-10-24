@@ -6,19 +6,16 @@ import TagPool from './tagPool'
 import Content from './content'
 import Page from './page'
 import { filterVideosByTags, getTagsFromVideos, purifyTags } from '@/functions/helpers'
+import { useIsMobileContext } from '@/state/isMobile/isMobile.context'
 
 const Videos = ({ videoData }: { videoData: ICompleteVideo[] }) => {
+  const isMobile = useIsMobileContext();
   const videos = videoData.sort((a, b) => +dayjs(b.availableAt) - +dayjs(a.availableAt));
-  const [isMobile, setIsMobile] = useState<boolean>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [displayedVideos, setDisplayedVideos] = useState(videos);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const pagesize = 20;
-
-  useEffect(() => {
-    setIsMobile(require('@/config/isMobile')(navigator.userAgent));
-  }, [])
 
   useEffect(() => {
     setIsLoading(true);

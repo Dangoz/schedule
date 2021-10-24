@@ -2,15 +2,11 @@ import IProfile from '@/interfaces/profile.interface'
 import { useState, useEffect } from 'react'
 import { Row, Col, Divider } from 'antd'
 import { YoutubeFilled, TwitterOutlined, StarTwoTone, VideoCameraTwoTone, EyeFilled, StarFilled, VideoCameraFilled } from '@ant-design/icons'
-import Link from 'next/link'
+import { useIsMobileContext } from '@/state/isMobile/isMobile.context'
 import ProfileStyle from '@/styles/profile/profile.module.css'
 
 const Profile = ({ talent }: { talent: IProfile }) => {
-  const [isMobile, setIsMobile] = useState<boolean>(null);
-
-  useEffect(() => {
-    setIsMobile(require('@/config/isMobile')(navigator.userAgent));
-  }, [])
+  const isMobile = useIsMobileContext();
 
   return (<>
     <div className={ProfileStyle.wrapper} style={{ paddingTop: isMobile ? '10px' : '50px' }}>
