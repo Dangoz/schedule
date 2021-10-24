@@ -1,0 +1,29 @@
+{
+  "name": "PC-Schedule",
+  "short_name": "PC-Schedule",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "300x156",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/logo_white.png",
+      "sizes": "635x300",
+      "type": "image/png",
+      "purpose": "favicon"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "https://schedule-pc.vercel.app",
+  "display": "standalone",
+  "orientation": "portrait"
+}
