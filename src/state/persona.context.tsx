@@ -5,21 +5,15 @@
  */
 
 import { useContext, createContext, useState } from 'react'
-export const personaContext = createContext(null);
+export const personaContext = createContext(null)
 
 export const PersonaWrapper = ({ children }) => {
-  const [personaData, setPersonaData] = useState(null);
-  const value = { personaData, setPersonaData };
+  const [personaData, setPersonaData] = useState(null)
+  const value = { personaData, setPersonaData }
 
-  return (
-    <personaContext.Provider value={value}>
-      {children}
-    </personaContext.Provider>
-  )
+  return <personaContext.Provider value={value}>{children}</personaContext.Provider>
 }
 
 export const usePersonaContext = () => {
   return useContext(personaContext)
 }
-
-

@@ -13,13 +13,7 @@
   cursor: pointer;
   width: 75px;
   height: 100px;
-  background-color: red;
-
-  filter: saturate(0.8);
-
-  /* box-shadow: 1px 1px 4px #ffffff; */
-
-  margin: 5px 10px;
+  margin: 8px;
 
   background-repeat: no-repeat;
   background-position: center;
@@ -28,7 +22,6 @@
   transition-timing-function: ease-out;
   transition-duration: 0.3s;
 }
-.talentBox:hover {
+.hoverBox:hover {
   transform: scale(1.3);
-
 }

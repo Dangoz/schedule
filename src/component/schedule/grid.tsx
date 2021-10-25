@@ -8,46 +8,59 @@ import dayjs from 'dayjs'
 import dayOfYear from 'dayjs/plugin/dayOfYear'
 import useTheme from '@/functions/useTheme'
 
-dayjs.extend(dayOfYear);
+dayjs.extend(dayOfYear)
 
-const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
-  { criteria: dayjs.Dayjs, videos: IStreamVideo[], isToday: boolean, isAfterwards: boolean, profiles: IProfile[] }) => {
-  const theme = useTheme();
-  const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 });
-  const [title, setTitle] = useState('MM / DD');
-  const [content, setContent] = useState(null);
-  const [isLoading, setIsloading] = useState(true);
+const Grid = ({
+  criteria,
+  videos,
+  isToday,
+  isAfterwards,
+  profiles,
+}: {
+  criteria: dayjs.Dayjs
+  videos: IStreamVideo[]
+  isToday: boolean
+  isAfterwards: boolean
+  profiles: IProfile[]
+}) => {
+  const theme = useTheme()
+  const [span] = useState({ xs: 24, sm: 12, md: 8, lg: 6 })
+  const [title, setTitle] = useState('MM / DD')
+  const [content, setContent] = useState(null)
+  const [isLoading, setIsloading] = useState(true)
 
   const filterVideos = async (): Promise<IStreamVideo[]> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let result = videos.filter(video => {
-
-          let timestamp = dayjs(video.availableAt);
-          let sameDay: boolean = (timestamp.dayOfYear() === criteria.dayOfYear() && timestamp.year() === criteria.year());
-          if (isToday) { return (+timestamp <= +criteria || sameDay) }
-          else if (isAfterwards) { return (+timestamp >= +criteria || sameDay) }
-          else { return sameDay };
+        let result = videos.filter((video) => {
+          let timestamp = dayjs(video.availableAt)
+          let sameDay: boolean = timestamp.dayOfYear() === criteria.dayOfYear() && timestamp.year() === criteria.year()
+          if (isToday) {
+            return +timestamp <= +criteria || sameDay
+          } else if (isAfterwards) {
+            return +timestamp >= +criteria || sameDay
+          } else {
+            return sameDay
+          }
         })
         // console.log('filtered!', JSON.stringify(result, null, 2));
 
         result = result.sort((a, b) => {
-          return +dayjs(a.availableAt) - +dayjs(b.availableAt);
+          return +dayjs(a.availableAt) - +dayjs(b.availableAt)
         })
 
-        resolve(result);
+        resolve(result)
       }, 100)
     })
   }
 
   useEffect(() => {
-
-    filterVideos().then(videos => {
-      setContent(videos);
+    filterVideos().then((videos) => {
+      setContent(videos)
       setTitle(criteria.format(isAfterwards ? 'MM / DD [ ~ Future]' : 'MM / DD'))
-      setIsloading(false);
+      setIsloading(false)
     })
-  }, []);
+  }, [])
 
   useEffect(() => {
     // console.log('content!!!', content);
@@ -56,33 +69,40 @@ const Grid = ({ criteria, videos, isToday, isAfterwards, profiles }:
   return (
     // only show grid that is initalizing (null), or contains contents (length > 0)
     <>
-      {(!content || (content && content.length > 0)) && <div className={GridStyle.wrapper}>
+      {(!content || (content && content.length > 0)) && (
+        <div className={GridStyle.wrapper}>
+          <div className={GridStyle.titleWrapper}>
+            <div className={GridStyle.title} style={{ backgroundColor: theme.foreground, color: theme.textHigh }}>
+              {title}
+            </div>
+          </div>
 
-        <div className={GridStyle.titleWrapper}>
-          <div className={GridStyle.title} style={{ backgroundColor: theme.foreground, color: theme.textHigh }}>
-            {title}
+          <div className={GridStyle.content}>
+            {isLoading ? (
+              <div className={GridStyle.spinWrapper}>
+                <Spin className={GridStyle.spin} size={'large'} />
+              </div>
+            ) : (
+              <Row className={GridStyle.row} gutter={[0, 0]} justify={'center'}>
+                {content.map((video) => (
+                  <Col
+                    xs={span.xs}
+                    sm={span.sm}
+                    md={span.md}
+                    lg={span.lg}
+                    className={GridStyle.colBox}
+                    key={video.link}
+                  >
+                    <div className={GridStyle.col}>
+                      <Card video={video} profiles={profiles} />
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            )}
           </div>
         </div>
-
-        <div className={GridStyle.content}>
-          {isLoading
-            ? <div className={GridStyle.spinWrapper}><Spin className={GridStyle.spin} size={'large'} /></div>
-            : <Row className={GridStyle.row} gutter={[0, 0]}
-              justify={'center'}>
-
-              {content.map(video => (
-                <Col xs={span.xs} sm={span.sm} md={span.md} lg={span.lg} className={GridStyle.colBox} key={video.link}>
-                  <div className={GridStyle.col}>
-                    <Card video={video} profiles={profiles} />
-                  </div>
-                </Col>
-              ))}
-
-            </Row>
-          }
-        </div>
-
-      </div>}
+      )}
     </>
   )
 }

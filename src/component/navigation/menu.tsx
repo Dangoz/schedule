@@ -8,13 +8,13 @@ import ThemeBucket from './themeBucket'
 import useTheme from '@/functions/useTheme'
 
 const Menu = ({ profiles }: { profiles: IProfile[] }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const [visible, setVisible] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   const draw = async (e) => {
-    setVisible(!visible);
+    setVisible(!visible)
   }
 
   useEffect(() => {
@@ -29,21 +29,21 @@ const Menu = ({ profiles }: { profiles: IProfile[] }) => {
       <DrawerMenu visible={visible} setVisible={setVisible} profiles={profiles} />
 
       <div className={MenuStyle.menu} style={{ opacity: scrolled ? 0.8 : 1, backgroundColor: theme.foreground }}>
-
-        <div className={MenuStyle.drawerBlock} >
-          {visible
-            ? <MenuFoldOutlined className={MenuStyle.drawer} onClick={draw} />
-            : <MenuUnfoldOutlined className={MenuStyle.drawer} onClick={draw} />}
+        <div className={MenuStyle.drawerBlock}>
+          {visible ? (
+            <MenuFoldOutlined className={MenuStyle.drawer} onClick={draw} />
+          ) : (
+            <MenuUnfoldOutlined className={MenuStyle.drawer} onClick={draw} />
+          )}
         </div>
 
         <div className={MenuStyle.logoBlock}>
-          <img src="/logo_white.png" alt='logo' className={MenuStyle.logo} />
+          <img src="/logo_white.png" alt="logo" className={MenuStyle.logo} />
         </div>
 
         <div className={MenuStyle.placeholder}>
           <ThemeBucket />
         </div>
-
       </div>
 
       <ToTop />
