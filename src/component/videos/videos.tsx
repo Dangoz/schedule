@@ -1,4 +1,4 @@
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import VideoStyle from '@/styles/videos/video.module.css'

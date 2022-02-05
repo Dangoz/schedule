@@ -1,10 +1,10 @@
-import {} from 'react'
+import { } from 'react'
 import Menu from '@/component/navigation/menu'
 import { GetStaticProps } from 'next'
 import IProfile from '@/interfaces/profile.interface'
 import api from '@/config/axios'
 import Context from '@/component/archive/context'
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import useTheme from '@/functions/useTheme'
 
 const Archive = ({ personaData, videoData }: { personaData: IProfile[]; videoData: ICompleteVideo[] }) => {
@@ -20,7 +20,7 @@ const Archive = ({ personaData, videoData }: { personaData: IProfile[]; videoDat
 
 export default Archive
 
-export const getStaticProps: GetStaticProps = async ({}) => {
+export const getStaticProps: GetStaticProps = async ({ }) => {
   // get profiles
   const responsePersona = await api.get('/persona')
   console.log('Fetched <Profile> ^___^ Schedule Page')

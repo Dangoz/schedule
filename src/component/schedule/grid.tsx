@@ -1,7 +1,7 @@
 import GridStyle from '@/styles/schedule/grid.module.css'
 import { Row, Col, Spin } from 'antd'
 import { useEffect, useState } from 'react'
-import IStreamVideo from '@/interfaces/stream-video.interface'
+import IStreamVideo from '@/interfaces/streamVideo.interface'
 import Card from './card'
 import IProfile from '@/interfaces/profile.interface'
 import dayjs from 'dayjs'

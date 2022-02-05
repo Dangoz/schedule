@@ -1,5 +1,5 @@
 import IProfile from '@/interfaces/profile.interface'
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import ContextStyle from '@/styles/archive/context.module.css'

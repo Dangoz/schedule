@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import IStreamVideo from '@/interfaces/stream-video.interface'
+import IStreamVideo from '@/interfaces/streamVideo.interface'
 import IProfile from '@/interfaces/profile.interface'
 import CardStyle from '@/styles/schedule/card.module.css'
 import { useState, useEffect } from 'react'

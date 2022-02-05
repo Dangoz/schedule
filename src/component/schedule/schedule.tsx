@@ -1,4 +1,4 @@
-import IStreamVideo from '@/interfaces/stream-video.interface'
+import IStreamVideo from '@/interfaces/streamVideo.interface'
 import IProfile from '@/interfaces/profile.interface'
 import { useState, useEffect } from 'react'
 import ScheduleStyle from '@/styles/schedule/schedule.module.css'

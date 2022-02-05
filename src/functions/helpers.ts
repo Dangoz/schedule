@@ -1,4 +1,4 @@
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import { blockedTagList, blockedKeyword } from '@/constant/tags'
 import talentChannels from '@/constant/talentChannels.json'
 import Frequency from '@/functions/frequency'

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Divider } from 'antd'
 import { ClockCircleOutlined, YoutubeOutlined, PlaySquareFilled } from '@ant-design/icons'
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import IProfile from '@/interfaces/profile.interface'
 import CardStyle from '@/styles/videos/card.module.css'
 import dayjs from 'dayjs'

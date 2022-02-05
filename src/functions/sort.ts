@@ -1,5 +1,5 @@
 import IProfile from '@/interfaces/profile.interface'
-import IStreamVideo from '@/interfaces/stream-video.interface'
+import IStreamVideo from '@/interfaces/streamVideo.interface'
 
 // (used by drawer!) sort profiles into a list of talents, by assigned order & generation
 export const sortTalentsByGeneration = (

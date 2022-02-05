@@ -1,4 +1,4 @@
-import ICompleteVideo from '@/interfaces/complete-video.interface'
+import ICompleteVideo from '@/interfaces/completeVideo.interface'
 import IProfile from '@/interfaces/profile.interface'
 import { useState, useEffect } from 'react'
 import { Spin, Row, Col } from 'antd'
