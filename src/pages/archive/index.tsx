@@ -1,4 +1,4 @@
-import { } from 'react'
+import {} from 'react'
 import Menu from '@/component/navigation/menu'
 import { GetStaticProps } from 'next'
 import IProfile from '@/interfaces/profile.interface'
@@ -20,7 +20,7 @@ const Archive = ({ personaData, videoData }: { personaData: IProfile[]; videoDat
 
 export default Archive
 
-export const getStaticProps: GetStaticProps = async ({ }) => {
+export const getStaticProps: GetStaticProps = async ({}) => {
   // get profiles
   const responsePersona = await api.get('/persona')
   console.log('Fetched <Profile> ^___^ Schedule Page')
