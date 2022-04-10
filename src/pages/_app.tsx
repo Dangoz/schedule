@@ -18,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       theme = 'dark'
       localStorage.setItem('theme', 'dark')
     }
-    if (theme && theme !== 'dark') themeStore.dispatch(switchTheme(theme))
+    if (theme && theme !== 'dark') {
+      themeStore.dispatch(switchTheme(theme))
+    }
   }, [])
 
   return (
