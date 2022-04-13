@@ -4,5 +4,6 @@ import { NextResponse } from 'next/server'
 
 export function middleware(request: NextRequest, event: NextFetchEvent) {
 
-  return NextResponse.redirect("https://phase-connect.com/")
+  // return NextResponse.redirect("https://phase-connect.com/")
+  return NextResponse.next()
 }
