@@ -28,6 +28,14 @@ const themes: ITheme[] = [
     textHigh: '#ffffff',
     emission: '#0072e1',
   },
+  {
+    name: 'summer',
+    background: '#FFF5E1',
+    foreground: '#FFAEBC',
+    textLow: '#adadad',
+    textHigh: '#ffffff',
+    emission: '#FFAEBC',
+  }
 ]
 
 export const themeNames: string[] = themes.map((theme) => theme.name)
