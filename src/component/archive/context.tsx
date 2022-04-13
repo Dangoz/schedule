@@ -42,7 +42,7 @@ const Context = ({ personaData, videoData }: { personaData: IProfile[]; videoDat
 
       <Content videos={displayedVideos.slice(pagesize * (page - 1), pagesize * page)} isLoading={isLoading} />
 
-      <Page />
+      {/* <Page /> */}
     </>
   )
 }
